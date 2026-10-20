@@ -1,0 +1,2 @@
+Capítulo 21 com 2.995 palavras (tabela e referências contam; o limite é 3.000); resumo salvo.
+Pendências: conferir status do KIP-932 no Kafka 4.0, `x-delivery-limit` padrão 20 no RabbitMQ 4.0 e o link do Kinesis (aws.amazon.com/message/11201/).

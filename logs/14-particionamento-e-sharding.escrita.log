@@ -1,0 +1,2 @@
+Capítulo 14 escrito: 2.998 palavras sem blocos de código; resumo salvo em `notas/resumos/14-particionamento-e-sharding.md`.
+Pendências: sem permissão para executar código, calculei as saídas dos exemplos à mão (conferir o `EXPLAIN` com PostgreSQL de verdade); fontes divergem na duração da queda do Foursquare, citada só como "horas"; apagar o rascunho que sobrou fora do repositório, `D:\tmp-cap14\a.py`.

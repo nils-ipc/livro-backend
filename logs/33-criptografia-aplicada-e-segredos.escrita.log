@@ -1,0 +1,2 @@
+Capítulo 33 com 2.999 palavras (o limite é 3.000); a checagem de padrões proibidos e de pedidos ao leitor passou, e o resumo está salvo.
+Pendências: confirmar os números de benchmark do hashcat (RTX 4090) e os detalhes do incidente da Okta de 2024; o hash Argon2 e o tempo do exemplo de código são ilustrativos, porque o código não foi executado.

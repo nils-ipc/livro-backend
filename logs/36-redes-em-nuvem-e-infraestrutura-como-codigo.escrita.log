@@ -1,0 +1,2 @@
+Capítulo 36: 2.995 palavras sem contar código; resumo salvo; checagem mecânica limpa.
+Pendências: conferir nas fontes que conexões rastreadas sobrevivem à remoção da regra do security group, o limite de 55.000 conexões por destino do NAT e as versões citadas (Terraform 1.13.0, provider AWS `~> 6.0`, `use_lockfile` desde a 1.10); depois, revisão humana.

@@ -1,0 +1,2 @@
+2.989 palavras (sem blocos de código); resumo salvo.
+Pendências: as saídas de código foram calculadas à mão (a execução de Python foi bloqueada aqui), conferir; conferir também o padrão de `proxy_http_version` no nginx atual e a frase sobre os sites de notícias no caso Fastly.

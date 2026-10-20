@@ -1,0 +1,2 @@
+2.986 palavras.
+Pendências: as saídas de `EXPLAIN`, dos logs do SQLAlchemy e o token base64 foram montados à mão e não executados (Python e `base64` aguardavam sua aprovação). Conferir a afirmação "BUFFERS padrão com ANALYZE no PG 18".
