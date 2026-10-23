@@ -2,7 +2,7 @@
 
 ## Quatro mil previsões do tempo por segundo
 
-Às 6h03 de uma segunda-feira, a API de previsão do tempo para produtores rurais recebeu 4.000 requisições por segundo. Numa segunda normal, ela recebe 140. Os 3.000 agricultores que abriram o aplicativo para decidir se plantavam milho naquele dia receberam uma previsão uniforme para todo o país: `503 Service Unavailable`, com 100% de chance.
+A previsão para todo o país naquela segunda-feira foi uniforme: `503 Service Unavailable`, com 100% de chance. Foi o que receberam os 3.000 agricultores que abriram o aplicativo às 6h03 para decidir se plantavam milho naquele dia. A API de previsão do tempo para produtores rurais, que numa segunda normal recebe 140 requisições por segundo, estava recebendo 4.000.
 
 Todo o tráfego extra vinha de uma única chave de API, a da Cooperativa Vale do Milho, e de um único processo: `sync_chuva.py`. No topo do arquivo, um comentário honesto: `# roda uma vez por dia, não precisa de sleep`. Um bug de fuso horário tinha transformado "uma vez por dia" em "sempre", e o laço `while True` passou a pedir a previsão de 5.570 municípios, sem pausa. Quando as respostas começaram a falhar, o script tentou de novo, imediatamente, três vezes.
 

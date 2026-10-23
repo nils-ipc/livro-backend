@@ -2,7 +2,7 @@
 
 ## Dezoito mil celulares perguntando pela mesma pizza
 
-Às 20h14 de um sábado, Dona Zuleica pediu uma pizza meia calabresa, meia portuguesa, e abriu a tela "Acompanhe seu pedido". O aplicativo (a situação é hipotética) perguntou como estava o pedido 7781 e ouviu `{"etapa": "no_forno"}`. Dois segundos depois, perguntou de novo. A pizza levou 38 minutos para chegar, e o celular de Dona Zuleica fez 1.140 perguntas sobre ela, das quais 1.135 receberam exatamente a mesma resposta.
+O celular de Dona Zuleica fez 1.140 perguntas sobre uma pizza meia calabresa, meia portuguesa, e 1.135 delas receberam exatamente a mesma resposta. Ela pediu a pizza às 20h14 de um sábado e abriu a tela "Acompanhe seu pedido". O aplicativo (a situação é hipotética) perguntou como estava o pedido 7781 e ouviu `{"etapa": "no_forno"}`. Dois segundos depois, perguntou de novo, e continuou perguntando pelos 38 minutos que a pizza levou para chegar.
 
 No pico de sábado, eram 18 mil celulares com a mesma tela aberta: 9 mil requisições por segundo no servidor `polling-01`, cada uma com um `SELECT` pela chave primária e um JSON de 21 bytes entregue com a solenidade de quem traz uma notícia. Em 99,6% das vezes, a notícia era que nada tinha mudado. A equipe dobrou as réplicas duas vezes, e o banco chegou a 70% de CPU respondendo "já saiu?". A pizza seguia, indiferente, no forno.
 

@@ -1,8 +1,8 @@
 # Criptografia aplicada e segredos
 
-## O e-mail das 9h14
+## Vocês sabem que isso está público?
 
-O e-mail chegou numa terça-feira, às 9h14, com o assunto mais curto e mais assustador da história da Fala Fácil, uma escola de idiomas online (hipotética): "vocês sabem que isso está público?". O corpo trazia um link para um bucket e, dentro dele, o arquivo `backup_final_COMPLETO.sql.gz`. Ninguém sabia quem tinha criado o bucket.
+Ninguém na Fala Fácil, uma escola de idiomas online (hipotética), sabia quem tinha criado aquele bucket, nem que dentro dele morava o arquivo `backup_final_COMPLETO.sql.gz`. A escola descobriu numa terça-feira, às 9h14, por um e-mail com o link e o assunto mais curto e mais assustador da história da empresa: "vocês sabem que isso está público?".
 
 O dump tinha 212 mil alunos. A coluna `senha` guardava MD5 sem salt. A coluna `cpf_cifrado` usava AES em modo ECB com a chave `fala-facil-2017!`, escolhida em 2017 por um critério técnico irrepreensível: tem exatamente 16 caracteres, o tamanho de uma chave AES-128. Ela morava em `settings.py`, linha 42, e numa mensagem fixada no `#geral` desde 2018, "para facilitar o onboarding".
 

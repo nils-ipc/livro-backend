@@ -2,7 +2,7 @@
 
 ## O painel estava verde
 
-Segunda-feira, 9h40. O suporte abre o quinto chamado da manhã com o mesmo texto: "o checkout fica girando e depois dá erro". Você abre o painel de monitoramento. No centro, em letras grandes e num verde muito saudável, está escrito: **latência média: 95 ms**. A meta é 200 ms. O painel está tranquilo. O painel sempre está tranquilo.
+"Latência média: 95 ms", diz o painel de monitoramento, em letras grandes e num verde muito saudável. A meta é 200 ms. Você está olhando para esse número porque o suporte acabou de abrir o quinto chamado da manhã com o mesmo texto: "o checkout fica girando e depois dá erro". O painel está tranquilo. O painel sempre está tranquilo.
 
 Você responde ao suporte que o sistema está rápido. O suporte responde com um print de um cliente esperando 8 segundos. Os dois estão certos: o sistema está rápido e lento ao mesmo tempo, dependendo de quem pergunta.
 

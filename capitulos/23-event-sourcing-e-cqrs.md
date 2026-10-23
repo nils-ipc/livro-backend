@@ -2,7 +2,13 @@
 
 ## Os 4.380 pontos do Seu Arlindo
 
-Seu Arlindo chegou ao balcão da Café Coado às 7h02 de uma segunda-feira, pediu o pão de queijo de sempre e anunciou que ia pagar com os 4.380 pontos que juntou em seis anos de cafezinho. A atendente olhou a tela. O saldo dele era 12.
+```text
+Seu Arlindo: O pão de queijo de sempre, por favor. Vou pagar com os pontos.
+Atendente:   O senhor tem 12 pontos.
+Seu Arlindo: Tenho 4.380. Juntei em seis anos de cafezinho.
+```
+
+A conversa aconteceu no balcão da Café Coado às 7h02 de uma segunda-feira, e os dois estavam certos: Seu Arlindo tinha juntado os pontos, e a tela da atendente mostrava 12.
 
 O chamado chegou à equipe de backend às 7h40, com o assunto "URGENTE: cliente idoso muito educado e muito bravo". A tabela `contas_fidelidade` tinha uma coluna `saldo`, e a coluna dizia 12 com a convicção de quem nunca guarda o passado. Seu Arlindo perguntava para onde tinham ido os pontos. O sistema respondia, em essência, "sei lá, mas agora são 12".
 

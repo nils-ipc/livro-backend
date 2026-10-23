@@ -2,7 +2,7 @@
 
 ## Trinta e sete flamingos para ninguém
 
-Às 9h14 de uma segunda-feira (hipotética, mas dolorosamente plausível), o depósito de uma loja on-line de artigos de piscina despachou 37 boias de flamingo para pedidos que não existiam. Os caminhões saíram, as etiquetas estavam impecáveis e o banco de dados jurava, com toda a convicção de um sistema ACID, que aqueles pedidos nunca tinham sido criados.
+Trinta e sete boias de flamingo saíram do depósito de uma loja on-line de artigos de piscina numa segunda-feira, às 9h14 (hipotética, mas dolorosamente plausível), rumo a pedidos que não existiam. Os caminhões saíram, as etiquetas estavam impecáveis e o banco de dados jurava, com toda a convicção de um sistema ACID, que aqueles pedidos nunca tinham sido criados.
 
 O código responsável tinha onze linhas e uma boa intenção:
 

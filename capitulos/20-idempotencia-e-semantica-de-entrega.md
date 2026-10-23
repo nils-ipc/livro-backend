@@ -2,7 +2,7 @@
 
 ## Quatro sacos de ração e um gato chamado Almirante
 
-Numa terça-feira chuvosa, Dona Lurdes recebeu em casa quatro sacos de ração de 15 kg. Ela tinha pedido um. O gato dela, Almirante, pesa 4 kg e come uns 60 gramas por dia, o que garante o estoque da casa até meados de 2029 (a conta é real; a paciência do Almirante com o mesmo sabor, não).
+O Almirante, gato de 4 kg que come uns 60 gramas de ração por dia, tem estoque garantido até meados de 2029 (a conta é real; a paciência dele com o mesmo sabor, não). Numa terça-feira chuvosa, Dona Lurdes, a dona dele, recebeu em casa quatro sacos de ração de 15 kg. Ela tinha pedido um.
 
 O caso é hipotético, e cada passo dele acontece todos os dias em algum lugar. Dona Lurdes tocou em "Repetir pedido" dentro do elevador. O servidor criou o pedido, cobrou o cartão e respondeu `201`. A resposta morreu entre o quarto e o quinto andar, e o aplicativo, depois de 10 segundos de silêncio, mandou de novo. Segundo pedido.
 

@@ -2,7 +2,7 @@
 
 ## O voucher que deu as boas-vindas 14 vezes
 
-Segunda-feira, 9h02. O financeiro abre o relatório semanal e encontra uma linha curiosa: o voucher `BEMVINDO50`, de uso único, que dá R$ 50 de crédito a cada cliente novo, foi resgatado 14 vezes pela mesma conta. Em 0,3 segundo. Nunca um cliente foi tão bem-vindo. (A situação é hipotética; a conta corrente da empresa é que nunca acha graça.)
+Nunca um cliente foi tão bem-vindo. O voucher `BEMVINDO50`, de uso único, que dá R$ 50 de crédito a cada cliente novo, foi resgatado 14 vezes pela mesma conta, em 0,3 segundo, e o financeiro só descobriu na segunda de manhã, numa linha curiosa do relatório semanal. (A situação é hipotética; a conta corrente da empresa é que nunca acha graça.)
 
 O código do endpoint passou por revisão, tem teste e parece impecável:
 

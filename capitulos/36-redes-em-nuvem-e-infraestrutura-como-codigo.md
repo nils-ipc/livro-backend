@@ -2,7 +2,7 @@
 
 ## A rede que ninguém escreveu
 
-Quinta-feira, 16h40. A auditoria do Roque Rápido, uma plataforma de aulas de xadrez online, pede dois documentos "bem simples": o desenho da rede de produção e o plano para recriá-la em outra região. A equipe abre o console do provedor de nuvem e encontra três redes virtuais (`prod`, `prod-nova` e `prod-nova-2-usar-essa`), 41 regras de firewall e uma rota apontando para um recurso que ninguém reconhece.
+A auditoria do Roque Rápido, uma plataforma de aulas de xadrez online, chega numa quinta-feira à tarde pedindo dois documentos "bem simples": o desenho da rede de produção e o plano para recriá-la em outra região. A equipe abre o console do provedor de nuvem e encontra três redes virtuais (`prod`, `prod-nova` e `prod-nova-2-usar-essa`), 41 regras de firewall e uma rota apontando para um recurso que ninguém reconhece.
 
 Uma das regras se chama `libera-geral-so-hoje`. Foi criada em 14 de março de 2021 e abre a porta 5432 do PostgreSQL para `0.0.0.0/0`, a internet inteira. O "só hoje" já dura mais de cinco anos. Ninguém sabe se algum sistema depende dela, e apagá-la para descobrir seria um teste em produção com a produção como cobaia. Para completar a tarde, o financeiro pergunta por que a linha "processamento de dados no NAT" custa mais que todos os servidores juntos.
 

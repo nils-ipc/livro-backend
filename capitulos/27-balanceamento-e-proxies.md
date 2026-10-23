@@ -2,7 +2,7 @@
 
 ## A réplica mais rápida da empresa
 
-Na segunda-feira, às 9h03, o painel do aplicativo de passeio de cachorros comemorou um recorde: a latência mediana caiu de 80 ms para 3 ms. Ninguém tinha otimizado nada. Ao mesmo tempo, 58% dos agendamentos falhavam, e o Seu Horácio tentava pela sétima vez marcar o passeio do Biscoito, um dachshund com horário fixo e pouca tolerância a atrasos.
+O Biscoito é um dachshund com horário fixo de passeio e pouca tolerância a atrasos, e o Seu Horácio tentava pela sétima vez marcar esse horário no aplicativo. Enquanto isso, o painel do mesmo aplicativo comemorava um recorde naquela segunda-feira de manhã: a latência mediana tinha caído de 80 ms para 3 ms. Ninguém tinha otimizado nada, e 58% dos agendamentos falhavam.
 
 A situação é hipotética; o mecanismo, não. O deploy subiu seis réplicas, de `passeio-01` a `passeio-06`. A `passeio-04` recebeu uma variável de ambiente errada que apontava o banco para `localhost`, onde morava apenas silêncio. Cada requisição nela voltava com `503` em 2 ms. O `/health` dela respondia `{"status": "ok"}`, porque só conferia se o processo estava de pé. E estava, servindo erros com eficiência admirável.
 

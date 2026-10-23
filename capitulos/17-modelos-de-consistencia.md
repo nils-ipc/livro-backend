@@ -2,7 +2,7 @@
 
 ## A resposta que chegou antes da pergunta
 
-Às 7h12 de uma segunda-feira, o grupo de moradores de um aplicativo de condomínio (um sistema hipotético, com moradores hipotéticos e um cachorro hipotético chamado Paçoca) exibiu, para metade do prédio, a seguinte conversa:
+O Paçoca, um cachorro caramelo hipotético de um condomínio hipotético, fugiu, foi encontrado e comeu um chinelo, nessa ordem. Às 7h12 de uma segunda-feira, o grupo de moradores do aplicativo do condomínio contou a história para metade do prédio na ordem contrária:
 
 ```text
 Apto 1204:  Achei! Está aqui comigo, muito dócil, comeu meu chinelo.

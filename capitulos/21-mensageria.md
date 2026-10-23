@@ -2,11 +2,11 @@
 
 ## Três canecas e um papagaio
 
-Seu Valdemar abriu a porta numa segunda-feira de manhã e recebeu três canecas idênticas com a foto do papagaio dele, o Comandante, de óculos escuros. Ele tinha comprado uma. A loja (situação hipotética) mandou também três notas fiscais, o que pelo menos manteve a contabilidade coerente com o estoque.
+O log registrou `caneca impressa com sucesso` três vezes, e estava certo nas três. Seu Valdemar tinha comprado uma caneca com a foto do papagaio dele, o Comandante, de óculos escuros, e numa segunda-feira de manhã recebeu três idênticas. A loja (situação hipotética) mandou também três notas fiscais, o que pelo menos manteve a contabilidade coerente com o estoque.
 
 A API gravava o pedido e publicava uma mensagem numa fila gerenciada. Workers liam a fila, renderizavam a arte em alta resolução e mandavam o arquivo para a impressora. A fila estava na configuração padrão, que dá ao worker 30 segundos para terminar; a renderização levava 12 em média.
 
-A foto do Comandante tinha 48 megapixels, porque o sobrinho do Seu Valdemar tem uma câmera nova e muito entusiasmo. A renderização levou 41 segundos. Aos 30, a fila concluiu que o primeiro worker tinha morrido e entregou a mesma mensagem a um segundo. Aos 60, a um terceiro. Os três imprimiram e gravaram no log `caneca impressa com sucesso`. O log estava certo três vezes.
+A foto do Comandante tinha 48 megapixels, porque o sobrinho do Seu Valdemar tem uma câmera nova e muito entusiasmo. A renderização levou 41 segundos. Aos 30, a fila concluiu que o primeiro worker tinha morrido e entregou a mesma mensagem a um segundo. Aos 60, a um terceiro. Os três imprimiram e gravaram a mesma linha de sucesso no log.
 
 Nenhum componente falhou; o defeito estava na conversa entre a fila e os consumidores. A pergunta do capítulo: como um sistema de mensageria decide que uma mensagem foi processada, e o que ele faz quando decide errado?
 

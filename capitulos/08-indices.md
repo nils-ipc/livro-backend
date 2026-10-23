@@ -2,7 +2,7 @@
 
 ## O dia em que o rastreio aprendeu a aceitar minúsculas
 
-Às 16h40 de uma quinta-feira, alguém do time de logística subiu uma correção de uma linha: a página de rastreio passaria a aceitar códigos digitados em minúsculas. A consulta que era assim:
+A página de rastreio passou anos recusando códigos digitados em minúsculas, até que, numa quinta-feira às 16h40, alguém do time de logística resolveu fazer as pazes com quem não usa o caps lock. Foi uma correção de uma linha. A consulta que era assim:
 
 ```sql
 SELECT * FROM entregas WHERE codigo_rastreio = $1;

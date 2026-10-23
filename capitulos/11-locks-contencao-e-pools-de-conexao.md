@@ -2,7 +2,7 @@
 
 ## O show que esgotou sem vender
 
-Às 10h00 de uma segunda-feira, abriu a venda de ingressos para a turnê de reencontro de uma banda que tinha se separado em 1998 (a situação é hipotética; a dor é real). Trinta mil pessoas apertaram "Comprar" no mesmo segundo. Às 10h00min31s, o painel mostrava três números: CPU do banco em 4%, memória sobrando e 37 ingressos vendidos.
+Uma banda que tinha se separado em 1998 anunciou a turnê de reencontro, e a venda de ingressos abriu numa segunda-feira, às 10h00 em ponto (a situação é hipotética; a dor é real). Trinta mil pessoas apertaram "Comprar" no mesmo segundo. Às 10h00min31s, o painel mostrava três números: CPU do banco em 4%, memória sobrando e 37 ingressos vendidos.
 
 O log da API, por outro lado, estava bem ocupado:
 

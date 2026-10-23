@@ -2,7 +2,7 @@
 
 ## O DELETE que comemorou aniversário
 
-Na segunda-feira de manhã, o `DELETE` que apaga leituras de temperatura com mais de 90 dias completou 30 horas de execução. Ninguém cantou parabéns. A empresa (hipotética) monitora 50 mil freezers de sorveterias e supermercados, cada um mandando uma leitura por minuto, e a tabela `leituras` guarda 6,5 bilhões de linhas. O expurgo semanal começou no domingo às 2h e precisa apagar 500 milhões delas.
+Ninguém cantou parabéns quando o `DELETE` que apaga leituras de temperatura com mais de 90 dias completou 30 horas de execução, numa segunda-feira de manhã. A empresa (hipotética) monitora 50 mil freezers de sorveterias e supermercados, cada um mandando uma leitura por minuto, e a tabela `leituras` guarda 6,5 bilhões de linhas. O expurgo semanal começou no domingo às 2h e precisa apagar 500 milhões delas.
 
 Cada linha apagada vira uma versão morta para o *autovacuum* limpar depois, as réplicas acumulam 40 minutos de atraso e o disco chegou a 91%. Na reunião de crise, alguém sugere: "Vamos fazer *sharding*". Outra pessoa pergunta: "Por qual coluna?". Uma terceira responde: "Pela geladeira, claro". Uma quarta, que atende a maior cliente da empresa, a Sorveteria Pinguim Feliz e seus 9 mil freezers, fica pálida e não diz nada.
 

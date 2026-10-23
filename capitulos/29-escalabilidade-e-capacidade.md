@@ -1,8 +1,8 @@
 # Escalabilidade e capacidade
 
-## Domingo, 20h47, bolo de fubá
+## O bolo de fubá e o QR code
 
-Às 20h47 de um domingo, a apresentadora de um programa culinário de TV olhou para a câmera, ergueu um bolo de fubá e disse: "a receita está no aplicativo, é só apontar o celular para o QR code". A situação é hipotética. O resto, infelizmente, segue a física.
+Um bolo de fubá derrubou um aplicativo de receitas num domingo à noite, e o bolo nem teve culpa. Às 20h47, a apresentadora de um programa culinário de TV olhou para a câmera, ergueu o bolo e disse: "a receita está no aplicativo, é só apontar o celular para o QR code". A situação é hipotética. O resto, infelizmente, segue a física.
 
 O aplicativo de receitas recebia 60 requisições por segundo, servidas com folga por 3 pods. Noventa segundos depois do QR code, eram 9.000. O autoscaling, com meta de 70% de CPU, reagiu como prometia a documentação: pediu mais pods. Cada pod novo levava três minutos para ficar pronto, carregando 1,2 GB de vetores da "busca inteligente de receitas", recurso usado por 0,4% dos usuários.
 

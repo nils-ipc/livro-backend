@@ -2,7 +2,7 @@
 
 ## O professor que saiu em março e continua dando aula
 
-Numa segunda-feira de agosto, a plataforma de aulas de violão on-line amanheceu com uma aula nova publicada: "Asa Branca para iniciantes, parte 14". O autor era o Gilberto. O Gilberto saiu da empresa em março, com festa de despedida, bolo e um cartão assinado por todo mundo.
+O Gilberto saiu da empresa em março, com festa de despedida, bolo e um cartão assinado por todo mundo. Numa segunda-feira de agosto, publicou uma aula nova na plataforma de aulas de violão on-line: "Asa Branca para iniciantes, parte 14".
 
 A equipe conferiu o banco. A conta do Gilberto tinha sido apagada no dia da saída. O botão "Sair" tinha sido clicado. Mesmo assim, a API aceitava as requisições dele com toda a cortesia, porque cada uma trazia um JWT perfeitamente assinado, com `"papel": "professor"` e validade de um ano. Alguém tinha configurado assim em 2024, com o comentário `# 365 dias pra ninguém reclamar de login`. Ninguém reclamou. O Gilberto, em especial, estava muito satisfeito.
 

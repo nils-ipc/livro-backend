@@ -2,9 +2,9 @@
 
 ## Uma API inteira esperando um único boleto
 
-Segunda-feira, 9h03. O painel mostra uma API de pagamentos com uso de CPU em 2%, memória folgada, banco tranquilo e todas as requisições levando exatamente 2 segundos. Todas. Inclusive o `GET /health`, que só devolve `{"status": "ok"}` e, até sexta-feira, levava 1 milissegundo.
+Toda requisição à API de pagamentos leva exatamente 2 segundos. Toda, inclusive o `GET /health`, que só devolve `{"status": "ok"}` e, até sexta-feira, levava 1 milissegundo. Enquanto isso, o painel desta segunda de manhã mostra CPU em 2%, memória folgada e banco tranquilo.
 
-O orquestrador vê o health check estourar o limite e reinicia o contêiner, que volta, fica lento e é reiniciado de novo. Às 9h20 a API já reiniciou onze vezes e continua com 2% de CPU, o que é, tecnicamente, um ótimo aproveitamento de energia.
+O orquestrador vê o health check estourar o limite e reinicia o contêiner, que volta, fica lento e é reiniciado de novo. Em vinte minutos, a API reinicia onze vezes e continua com 2% de CPU, o que é, tecnicamente, um ótimo aproveitamento de energia.
 
 O culpado é um *pull request* de sexta-feira, "só uma linha":
 

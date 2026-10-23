@@ -2,7 +2,9 @@
 
 ## O serviço que não caiu e derrubou a loja
 
-Segunda-feira, 10h02, primeiro dia da promoção de cimento (a situação é hipotética; o cimento, não). A loja online recebe 200 requisições por segundo nas páginas de produto, e cada página mostra o frete, que vem do serviço interno `calcula-frete`, que consulta a API de uma transportadora.
+No primeiro dia da promoção de cimento, a página "Quem somos" da loja online saiu do ar. Ela só tem uma foto da fachada. (A situação é hipotética; o cimento, não.)
+
+Às 10h02 daquela segunda-feira, a loja recebe 200 requisições por segundo nas páginas de produto, e cada página mostra o frete, que vem do serviço interno `calcula-frete`, que consulta a API de uma transportadora.
 
 Às 10h03 a transportadora não caiu. Continuou aceitando conexões, com toda a educação, e passou a responder em 40 segundos. O `calcula-frete` esperou com a paciência configurada em 2019:
 
@@ -10,7 +12,7 @@ Segunda-feira, 10h02, primeiro dia da promoção de cimento (a situação é hip
 TIMEOUT = 30  # segundos. Não mexer. Ninguém sabe por quê, mas não mexer.
 ```
 
-A loja tinha 40 workers síncronos. Com o frete em 80 ms, ficavam 200 × 0,08 = 16 requisições em andamento. Com cada chamada presa por 30 segundos, a conta virou 200 × 30 = 6.000 requisições para 40 lugares, e os workers acabaram em 0,2 segundo. Dali em diante, o login, o carrinho e até a página "Quem somos" (que só tem uma foto da fachada) davam timeout, esperando na fila atrás das páginas de produto.
+A loja tinha 40 workers síncronos. Com o frete em 80 ms, ficavam 200 × 0,08 = 16 requisições em andamento. Com cada chamada presa por 30 segundos, a conta virou 200 × 30 = 6.000 requisições para 40 lugares, e os workers acabaram em 0,2 segundo. Dali em diante, o login, o carrinho e até a página "Quem somos" davam timeout, esperando na fila atrás das páginas de produto.
 
 Para completar, o cliente HTTP repetia a chamada três vezes ao receber erro, e o painel do `calcula-frete` ficou verde a manhã inteira: o `/health` dele respondia `200 OK` em 2 ms, porque não consultava a transportadora. Guarde esse painel verde; ele volta.
 

@@ -1,8 +1,8 @@
 # Observabilidade
 
-## Sábado, 7h12, e o log diz "chegou aqui 2"
+## O log que diz "chegou aqui 2"
 
-Sábado, 7h12. Seu Anselmo está na porta da lavanderia Bolha Azul com onze camisas sociais num saco e um aplicativo que, há quarenta segundos, mostra uma rodinha girando em cima do botão "Pagar". No plantão, Renata abre o painel: latência média do checkout, 257 ms, verde. Taxa de erro, 0,2%, verde. O painel está tranquilo. Seu Anselmo, menos.
+Seu Anselmo está na porta da lavanderia Bolha Azul, às 7h12 de um sábado, com onze camisas sociais num saco e um aplicativo que, há quarenta segundos, mostra uma rodinha girando em cima do botão "Pagar". No plantão, Renata abre o painel: latência média do checkout, 257 ms, verde. Taxa de erro, 0,2%, verde. O painel está tranquilo. Seu Anselmo, menos.
 
 Renata abre os logs do serviço `checkout` e encontra 1,8 milhão de linhas como estas:
 

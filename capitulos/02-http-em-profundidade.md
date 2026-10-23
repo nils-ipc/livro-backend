@@ -2,7 +2,7 @@
 
 ## O link que cancelava pedidos sozinho
 
-Segunda-feira, 9h12. O suporte abre um chamado: "pedidos se cancelando sozinhos (de novo?)". Desde sexta, 214 pedidos foram cancelados sem que nenhum cliente clicasse em nada. Nos logs, todas as requisições têm token válido, resposta `200 OK` e IP de um serviço de segurança de e-mail.
+Entre sexta e segunda, 214 pedidos da loja foram cancelados sem que nenhum cliente clicasse em nada. O suporte abre o chamado com um título que já admite o histórico: "pedidos se cancelando sozinhos (de novo?)". Nos logs, cada uma dessas requisições tem token válido, resposta `200 OK` e o IP de um serviço de segurança de e-mail.
 
 A história é hipotética, e o mecanismo é banal. Na sexta às 17h50 (claro), entrou no ar o novo e-mail de confirmação, com um botão "Cancelar pedido" apontando para `GET /pedidos/{id}/cancelar?token=...`. O scanner de links do e-mail corporativo dos clientes abriu cada link para procurar malware. O servidor recebeu o `GET`, cancelou o pedido e agradeceu com um `200 OK`.
 

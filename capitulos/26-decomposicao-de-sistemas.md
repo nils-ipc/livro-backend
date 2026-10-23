@@ -2,7 +2,7 @@
 
 ## Catorze serviços, quatro pessoas e um avatar
 
-Numa segunda-feira de manhã, a loja de discos de vinil parou de vender porque o serviço que entrega a fotinho redonda do usuário, com 48 por 48 pixels, estava fora do ar. Ninguém conseguia fechar a compra de um LP de 1977. O checkout chamava o `servico-de-avatares` para montar o cabeçalho da página de confirmação, o `servico-de-avatares` tinha travado num deploy, e o checkout, coerente com o que foi programado, devolvia `500`.
+Uma fotinho redonda de 48 por 48 pixels, o avatar do usuário, impediu uma loja de discos de vinil de vender qualquer coisa numa segunda-feira de manhã. Ninguém conseguia fechar a compra de um LP de 1977. O checkout chamava o `servico-de-avatares` para montar o cabeçalho da página de confirmação, o `servico-de-avatares` tinha travado num deploy, e o checkout, coerente com o que foi programado, devolvia `500`.
 
 A loja é hipotética, e a história é comum. Quatro pessoas cuidam do backend. Depois de uma palestra muito convincente, o sistema foi dividido em catorze microsserviços: três serviços e meio por pessoa, e o meio serviço é o `servico-de-avatares`, que ninguém assume. O checkout faz nove chamadas de rede em série. Cada serviço mostra 99,9% de disponibilidade no painel, todos verdes, e a loja passa umas sete horas por mês sem vender.
 

@@ -2,12 +2,14 @@
 
 ## O arquivo que derrubou a API sem nenhum bug
 
-Sábado, 3h12. O aplicativo de pagamentos para de funcionar para todo mundo ao mesmo tempo. O código não mudou desde quarta, o banco está calmo, a CPU dorme a 4%. Os logs do aplicativo trazem uma única linha, repetida 80 mil vezes:
+Oitenta mil vezes a mesma linha, e mais nada. É tudo o que os logs do aplicativo de pagamentos têm a dizer na madrugada de sábado, a partir das 3h12, quando ele para de funcionar para todo mundo ao mesmo tempo:
 
 ```text
 ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED]
 certificate verify failed: certificate has expired (_ssl.c:1000)
 ```
+
+O código não mudou desde quarta, o banco está calmo, a CPU dorme a 4%.
 
 A história é hipotética e o enredo, clássico. O certificado de `api.example.com` foi comprado à mão 397 dias antes, o lembrete de renovação estava na agenda de uma pessoa que saiu da empresa em 2023, e o inventário oficial de certificados é a planilha `certificados_FINAL_v3.xlsx`, editada pela última vez pela mesma pessoa. O certificado tinha uma data dentro. A data chegou.
 

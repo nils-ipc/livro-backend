@@ -1,12 +1,12 @@
 # CI/CD e estratégias de deploy
 
-## Sexta, 17h50, só uma linha
+## O rollback que reproduziu o bug
 
-Às 17h50 de uma sexta-feira, o Wanderley abriu um pull request de uma linha só. A mudança aumentava de 2 para 3 o número de check-ins por dia que um aluno da academia Ferro & Fôlego pode fazer na catraca. Os testes passaram, a revisão levou quarenta segundos ("é só uma linha") e o deploy em homologação saiu às 18h02. Tudo verde.
+Numa sexta-feira à noite, as recepcionistas das seis unidades da academia Ferro & Fôlego registraram 1.140 entradas num caderno espiral, à mão, uma por uma. Tudo começou às 17h50, quando o Wanderley abriu um pull request de uma linha só. A mudança aumentava de 2 para 3 o número de check-ins por dia que um aluno pode fazer na catraca. Os testes passaram, a revisão levou quarenta segundos ("é só uma linha") e o deploy em homologação saiu às 18h02. Tudo verde.
 
 Às 18h20, o script `deploy_final_agora_vai.sh`, que mora no notebook do Wanderley desde 2021, fez o deploy em produção. Para isso, ele fez o que sempre fez: clonou o repositório no mesmo commit, rodou `pip install -r requirements.txt` e gerou uma imagem nova. Às 18h07, treze minutos antes, uma biblioteca de validação que o `requirements.txt` declarava como `>=2.1` tinha publicado a versão 3.0, com uma mudança incompatível. Homologação recebeu a 2.9. Produção recebeu a 3.0.
 
-Às 18h21, as catracas das seis unidades começaram a responder `ValidationError` para todo mundo. O Wanderley fez o óbvio: rodou o script de novo, apontando para o commit anterior. O script clonou o commit anterior, instalou as dependências (versão 3.0, claro, a mais nova) e gerou uma imagem tão quebrada quanto a primeira. O rollback reproduziu o bug com fidelidade admirável. Até as 21h40, as recepcionistas registraram 1.140 entradas num caderno espiral.
+Às 18h21, as catracas das seis unidades começaram a responder `ValidationError` para todo mundo. O Wanderley fez o óbvio: rodou o script de novo, apontando para o commit anterior. O script clonou o commit anterior, instalou as dependências (versão 3.0, claro, a mais nova) e gerou uma imagem tão quebrada quanto a primeira. O rollback reproduziu o bug com fidelidade admirável. O caderno espiral ficou em produção até as 21h40.
 
 O código revisado estava certo. O que foi para produção era outra coisa, montada duas vezes a partir do mesmo commit. Como garantir que o que roda em produção seja exatamente o que foi testado e que, se der errado, dê errado para pouca gente, por pouco tempo, com uma volta que funcione?
 

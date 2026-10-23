@@ -1,8 +1,8 @@
 # TCP/IP e DNS
 
-## Sexta-feira, 17h50, "é só trocar o DNS"
+## A semana mais longa do `temp-01`
 
-São 17h50 de uma sexta-feira e a migração da API de pagamentos está quase pronta. O servidor novo está de pé, os testes passaram, e falta só uma linha: trocar o registro DNS de `api.example.com` do servidor antigo, o `temp-01` (ligado em 2016 "só por uma semana"), para o balanceador novo. Alguém troca a linha, confere no navegador, vê a resposta do servidor novo e desliga o `temp-01` às 18h05, com a sensação de dever cumprido.
+O `temp-01` foi ligado em 2016 "só por uma semana" e, desde então, atende sozinho a API de pagamentos. Numa sexta-feira, às 17h50, ele finalmente vai se aposentar. O servidor novo está de pé, os testes passaram, e falta só uma linha: trocar o registro DNS de `api.example.com` do `temp-01` para o balanceador novo. Alguém troca a linha, confere no navegador, vê a resposta do servidor novo e desliga o `temp-01` às 18h05, com a sensação de dever cumprido.
 
 Às 18h07 começam os alertas. Metade dos clientes recebe timeout de conexão. Os workers internos insistem no endereço antigo. E quem chega ao servidor novo reclama que a primeira requisição leva 400 ms, embora o servidor responda em 3 ms.
 

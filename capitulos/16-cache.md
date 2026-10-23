@@ -2,9 +2,9 @@
 
 ## Meia-noite, 4.000 clientes e uma chave que expirou
 
-São 23h59min58s da véspera de uma grande liquidação, e a home de um e-commerce hipotético está voando. A lista de ofertas vem de uma consulta pesada, de 800 ms, que junta preços, estoque e as regras de desconto que o time comercial alterou 31 vezes durante a tarde. Ninguém roda essa consulta a cada acesso, claro. O resultado mora no Redis, na chave `home:ofertas`, com TTL de uma hora. O banco recebe uma consulta por hora e passa o resto do tempo descansando. Taxa de acerto do cache: 99,97%. O painel está verde.
+No código da home de um e-commerce hipotético, logo acima da linha que grava a chave `home:ofertas` no Redis, mora um comentário de 2021: `# TODO: pensar na invalidação`. São 23h59min58s da véspera de uma grande liquidação, e esse comentário está a dois segundos de ficar famoso.
 
-No código, logo acima da linha que grava a chave, mora um comentário de 2021: `# TODO: pensar na invalidação`.
+A home está voando. A lista de ofertas vem de uma consulta pesada, de 800 ms, que junta preços, estoque e as regras de desconto que o time comercial alterou 31 vezes durante a tarde. Ninguém roda essa consulta a cada acesso, claro. O resultado mora no Redis, com TTL de uma hora. O banco recebe uma consulta por hora e passa o resto do tempo descansando. Taxa de acerto do cache: 99,97%. O painel está verde.
 
 À meia-noite em ponto, a chave expira. Ela foi gravada às 23h00, quando um *deploy* reiniciou tudo, e o TTL cumpriu o prometido. Nos 800 ms seguintes, 3.200 requisições olham o Redis, não acham nada e, com toda a disciplina, vão ao banco executar a consulta pesada. As consultas passam de 30 segundos, as requisições dão timeout antes de gravar o resultado, a chave continua vazia, e as requisições seguintes também vão ao banco. Às 0h04, a liquidação está oficialmente aberta e oficialmente fora do ar.
 

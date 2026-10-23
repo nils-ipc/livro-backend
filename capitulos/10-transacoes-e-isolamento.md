@@ -2,7 +2,7 @@
 
 ## O plantão que ficou vazio
 
-Sexta-feira, 23h58. Tadeu e Lívia, os dois engenheiros de plantão da semana, abrem o painel interno ao mesmo tempo e clicam em "Sair do plantão". Nenhum dos dois combinou nada com o outro. O sistema tem uma regra simples e muito bem testada: **pelo menos uma pessoa precisa continuar de plantão**.
+O sistema de plantão tem uma regra simples e muito bem testada: **pelo menos uma pessoa precisa continuar de plantão**. Numa sexta-feira, às 23h58, Tadeu e Lívia, os dois engenheiros de plantão da semana, abrem o painel interno ao mesmo tempo e clicam em "Sair do plantão". Nenhum dos dois combinou nada com o outro.
 
 O código da regra é este:
 

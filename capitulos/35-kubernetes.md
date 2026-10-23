@@ -1,8 +1,8 @@
 # Kubernetes
 
-## Sábado, 22h14, e ninguém canta
+## A noite em que ninguém cantou "Evidências"
 
-Dona Glória estava no palco do Microfone de Ouro, unidade Tatuapé, com o microfone na mão e a introdução de "Evidências" na cabeça. Ela tinha esperado 47 minutos. A tela do bar mostrava um círculo girando. Nas outras 22 unidades da rede, o mesmo círculo girava diante de outras pessoas, todas também prontas para cantar "Evidências".
+Num sábado à noite, Dona Glória estava no palco do Microfone de Ouro, unidade Tatuapé, com o microfone na mão e a introdução de "Evidências" na cabeça. Ela tinha esperado 47 minutos. A tela do bar mostrava um círculo girando. Nas outras 22 unidades da rede, o mesmo círculo girava diante de outras pessoas, todas também prontas para cantar "Evidências".
 
 O aplicativo da fila de músicas rodava num cluster Kubernetes com seis réplicas da API `fila-de-musicas`. Às 22h09, o disco do PostgreSQL ficou lento por causa de um vizinho de hospedagem barulhento. As consultas passaram de 4 ms para 1,3 segundo. Isso deixaria a fila lenta. O que a deixou morta foi uma linha escrita por alguém que já saiu da empresa:
 

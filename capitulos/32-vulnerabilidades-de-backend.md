@@ -1,8 +1,8 @@
 # Vulnerabilidades de backend
 
-## O relatório que chegou sexta às 17h40
+## Onze jogos de fondue a um centavo
 
-O relatório do teste de intrusão chegou numa sexta-feira às 17h40, com 31 páginas e um sumário executivo de uma linha só: "Conseguimos tudo". O caso é hipotético, mas cada detalhe dele já aconteceu em algum lugar. O sistema era uma API de listas de presentes de casamento, escrita em Python com FastAPI, SQLAlchemy e testes com 91% de cobertura. Na lista de teste, a de Noemi e Haroldo, a equipe de testes tinha mudado o preço de um jogo de fondue para R$ 0,01 e comprado onze.
+Noemi e Haroldo ganharam onze jogos de fondue, comprados a R$ 0,01 cada. Por sorte, o casal era de teste, a lista também, e quem mudou o preço e fez as compras foi a equipe do teste de intrusão. O relatório chegou numa sexta-feira às 17h40, com 31 páginas e um sumário executivo de uma linha só: "Conseguimos tudo". O caso é hipotético, mas cada detalhe dele já aconteceu em algum lugar. O sistema era uma API de listas de presentes de casamento, escrita em Python com FastAPI, SQLAlchemy e testes com 91% de cobertura.
 
 Os achados críticos eram quatro, e cada um cabia numa linha de código:
 

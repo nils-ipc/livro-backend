@@ -2,7 +2,7 @@
 
 ## A escola que o banco achava que tinha quatro alunos
 
-Segunda-feira, 8h04. O suporte abre um chamado com o título "painel lento". Às 8h20, o título vira "painel MUITO lento". Às 8h41, alguém troca para "URGENTE: painel não abre", e o chamado ganha um ícone de fogo que ninguém sabia que o sistema de chamados tinha.
+Um chamado de suporte evolui em estágios, e o desta segunda-feira passou por todos antes das nove: às 8h04 era "painel lento", às 8h20 virou "painel MUITO lento" e às 8h41 chegou a "URGENTE: painel não abre", com um ícone de fogo que ninguém sabia que o sistema de chamados tinha.
 
 É o painel de cobrança de uma plataforma de cursos que atende 3.000 escolas, e a consulta, a mesma há dois anos, lista os alunos com boletos em aberto. Para as outras escolas, ela leva 30 ms. Para a escola 9001, o Colégio Grande, 47 segundos.
 

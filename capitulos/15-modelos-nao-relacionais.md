@@ -2,11 +2,11 @@
 
 ## Só uma perguntinha
 
-Segunda-feira, 9h07, chega a mensagem do Otávio, do produto: "só uma perguntinha: dá para listar as reservas de um usuário, da mais recente para a mais antiga?". A plataforma de reservas de quadras de padel guarda tudo num banco chave-valor gerenciado desde o primeiro dia, porque "ele escala sozinho". A chave de cada item é o `reserva_id`, um UUID. São 120 milhões de reservas.
+O Otávio, do produto, é uma pessoa curiosa, e a curiosidade dele chega sempre do mesmo jeito: "só uma perguntinha". A desta segunda de manhã foi "dá para listar as reservas de um usuário, da mais recente para a mais antiga?". A plataforma de reservas de quadras de padel guarda tudo num banco chave-valor gerenciado desde o primeiro dia, porque "ele escala sozinho". A chave de cada item é o `reserva_id`, um UUID. São 120 milhões de reservas.
 
 O banco escala sozinho mesmo. O que ele não faz é responder perguntas que ninguém combinou com ele antes. Para achar as reservas da usuária `u-4417`, a única operação disponível é ler a tabela inteira e filtrar no caminho. O *scan* leu 38 GB, levou 41 minutos, consumiu a capacidade de leitura provisionada da semana e devolveu 14 reservas. Duas delas eram da própria Ana, a dona do `u-4417`, reclamando que o aplicativo estava lento.
 
-Na terça veio outra perguntinha. O Otávio é muito curioso.
+Na terça veio outra perguntinha. O Otávio é muito curioso mesmo.
 
 Um banco relacional deixa você modelar os dados primeiro e descobrir as perguntas depois, porque tem um otimizador que monta um plano para qualquer `SELECT`. A maioria dos não relacionais inverte essa ordem. A pergunta, então: o que cada modelo não relacional sabe fazer de verdade, e como se modela um banco quando as perguntas precisam vir antes dos dados?
 

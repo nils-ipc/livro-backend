@@ -2,9 +2,9 @@
 
 ## A senha 47 e os dez segundos de silêncio
 
-Segunda-feira, 6h58. A TV da Padaria Trigo Dourado mostra `SENHA 47` há onze minutos, e onze clientes seguram papeizinhos com números maiores que 47 (a padaria é hipotética; os papeizinhos, infelizmente, são universais).
+A TV da Padaria Trigo Dourado mostra `SENHA 47` há onze minutos, e onze clientes seguram papeizinhos com números maiores que 47 (a padaria é hipotética; os papeizinhos, infelizmente, são universais).
 
-Quem chama as senhas é o `fila-do-pao`, um worker Python que lê a fila de atendimento num Redis e manda o próximo número para as TVs das catorze lojas. Às 6h47 alguém fez o deploy de uma correção "de uma linha só" no texto da TV. A Jéssica, que cuida do serviço, juntou as pistas no canal de incidentes:
+Quem chama as senhas é o `fila-do-pao`, um worker Python que lê a fila de atendimento num Redis e manda o próximo número para as TVs das catorze lojas. Às 6h47 daquela segunda-feira, alguém fez o deploy de uma correção "de uma linha só" no texto da TV. A Jéssica, que cuida do serviço, juntou as pistas no canal de incidentes:
 
 - `docker stop fila` leva 10,2 segundos. Sempre. Mesmo com o worker parado, sem nada para fazer.
 - O log termina no meio da frase `chamando senha 4`, e o contêiner sai com código `137`.

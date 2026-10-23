@@ -1,8 +1,8 @@
 # Contratos de API
 
-## Dia das Mães, 7h02
+## Uma palavra a mais no Dia das Mães
 
-Domingo de Dia das Mães, 7h02 da manhã, e o canal de suporte da Pétala Express (uma floricultura on-line hipotética) recebe a primeira mensagem do dia: "abri o app para ver onde está o buquê da minha mãe e a tela ficou branca". Às 7h15 são 300 mensagens. Às 8h, 4.200. O backend está saudável, a latência está ótima, o banco nunca esteve tão tranquilo. Só não tem ninguém conseguindo usá-lo.
+"Abri o app para ver onde está o buquê da minha mãe e a tela ficou branca." É a primeira mensagem do Dia das Mães no canal de suporte da Pétala Express (uma floricultura on-line hipotética), e chega às 7h02 da manhã de domingo. Às 7h15 são 300 mensagens. Às 8h, 4.200. O backend está saudável, a latência está ótima, o banco nunca esteve tão tranquilo. Só não tem ninguém conseguindo usá-lo.
 
 A causa foi um deploy de quinta-feira, 18h30, descrito no pull request como "só adiciona um status". O Válter, dono do serviço de pedidos, acrescentou o valor `"agendado"` ao campo `status` da resposta de `GET /pedidos/{id}`, para entregas marcadas com hora certa. Ele não removeu nada, não renomeou nada e não mudou nenhum tipo. Acrescentou uma palavra.
 

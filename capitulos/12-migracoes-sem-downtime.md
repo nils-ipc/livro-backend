@@ -2,7 +2,7 @@
 
 ## A migração de uma linha que derrubou o site por seis minutos
 
-Terça-feira, 10h14. O arquivo se chama `0137_so_uma_coluna.py`, tem uma operação e foi aprovado no code review por duas pessoas, uma delas com o comentário "trivial".
+O arquivo se chama `0137_so_uma_coluna.py`, tem uma operação e foi aprovado no code review por duas pessoas, uma delas com o comentário "trivial".
 
 ```python
 def upgrade() -> None:
@@ -11,7 +11,7 @@ def upgrade() -> None:
 
 Em staging, levou 4 ms. Em produção, a tabela `faturas` tem 38 milhões de linhas, mas isso não preocupa ninguém: no PostgreSQL, adicionar uma coluna anulável sem default só altera o catálogo, e o tamanho da tabela nem entra na conta. A equipe sabia disso. E estava certa.
 
-Às 10h14min03s, o pipeline aplica a migração. Às 10h14min05s, o p99 da API vai de 80 ms para 30 s, o timeout do balanceador. Às 10h15, os pools de conexão estão esgotados e o `/health` falha, o que faz o orquestrador reiniciar os pods, o que abre mais conexões, o que não ajuda. Às 10h20, alguém encontra no `pg_stat_activity` uma consulta iniciada às 9h36: o relatório de inadimplência do mês, disparado por uma ferramenta de BI, lendo `faturas` inteira com a serenidade de quem não tem SLO. A consulta é cancelada, o `ALTER TABLE` termina em 4 ms, exatamente como prometido, e o site volta.
+Numa terça-feira, às 10h14min03s, o pipeline aplica a migração. Às 10h14min05s, o p99 da API vai de 80 ms para 30 s, o timeout do balanceador. Às 10h15, os pools de conexão estão esgotados e o `/health` falha, o que faz o orquestrador reiniciar os pods, o que abre mais conexões, o que não ajuda. Às 10h20, alguém encontra no `pg_stat_activity` uma consulta iniciada às 9h36: o relatório de inadimplência do mês, disparado por uma ferramenta de BI, lendo `faturas` inteira com a serenidade de quem não tem SLO. A consulta é cancelada, o `ALTER TABLE` termina em 4 ms, exatamente como prometido, e o site volta.
 
 O comando levou 4 ms para executar e seis minutos esperando, e durante a espera ninguém leu uma única fatura. Como um comando que não faz nada pesado consegue parar todas as leituras de uma tabela? E, já que o schema precisa mudar com a aplicação no ar, em que ordem fazer cada mudança para que nenhum usuário perceba?
 

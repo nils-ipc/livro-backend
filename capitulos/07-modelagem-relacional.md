@@ -2,7 +2,7 @@
 
 ## O cliente que tinha três e-mails
 
-Segunda-feira, 9h04. O marketing dispara a campanha de aniversário da loja, e o Ricardo recebe o mesmo cupom em três endereços: o e-mail de um emprego de 2019, um com erro de digitação corrigido há dois anos e o certo, o único que caiu no spam.
+O Ricardo recebeu o mesmo cupom de aniversário da loja em três endereços: o e-mail de um emprego de 2019, um com erro de digitação corrigido há dois anos e o certo, o único que caiu no spam. O marketing, que disparou a campanha naquela manhã, ficou muito satisfeito com a taxa de entrega.
 
 A query fez o que pediam: `SELECT DISTINCT cliente_email FROM pedidos_v2_final`. Essa tabela (47 colunas, nenhuma restrição além da chave primária, criada "provisoriamente" em 2020) guarda o e-mail do cliente em cada pedido. Quando o Ricardo atualizou o cadastro, o código atualizou `clientes` e os pedidos abertos. Os antigos ficaram com o e-mail da época.
 

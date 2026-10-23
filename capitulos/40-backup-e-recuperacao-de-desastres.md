@@ -2,7 +2,7 @@
 
 ## O backup de 20 bytes
 
-Quarta-feira, 15h41. Na escola de natação Braçada Firme, um script chamado `limpa_dados_de_teste.py` faz exatamente o que o nome promete, só que no banco errado: a variável `DATABASE_URL` do terminal ainda apontava para produção desde a manhã. Em 0,8 segundo, 14.212 matrículas deixam de existir. A tabela `alunos` continua lá, intacta e inútil, cheia de pessoas que não estão matriculadas em nada.
+Um script chamado `limpa_dados_de_teste.py` faz exatamente o que o nome promete, só que no banco errado. Na escola de natação Braçada Firme, numa quarta-feira às 15h41, a variável `DATABASE_URL` do terminal ainda apontava para produção desde a manhã. Em 0,8 segundo, 14.212 matrículas deixam de existir. A tabela `alunos` continua lá, intacta e inútil, cheia de pessoas que não estão matriculadas em nada.
 
 Ninguém entra em pânico: existe backup. Às 3h, um cron faz isto:
 
