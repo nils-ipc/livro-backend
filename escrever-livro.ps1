@@ -1,12 +1,14 @@
 #Requires -Version 7
 <#
 .SYNOPSIS
-  Escreve os capítulos do livro, um por vez, chamando o Claude Code em modo
-  não interativo. Versão nativa para Windows (PowerShell 7) de escrever-livro.sh.
+  Escreve os capítulos do livro chamando o Claude Code em modo não interativo,
+  em lotes de -PorVez capítulos (padrão: 2) por chamada. Versão nativa para
+  Windows (PowerShell 7) de escrever-livro.sh.
 
 .DESCRIPTION
-  Para cada capítulo: escreve o capítulo, faz uma checagem mecânica (grep de
-  marcas de IA e contagem de palavras) e salva um resumo em notas/resumos/.
+  Para cada capítulo do lote, em ordem: escreve o capítulo, faz uma checagem
+  mecânica (grep de marcas de IA e contagem de palavras) e salva um resumo em
+  notas/resumos/.
 
   Cada opção pode vir como parâmetro ou como variável de ambiente com o mesmo
   nome do script .sh (INICIO, FIM, REESCREVER, ...). O parâmetro tem prioridade.
@@ -17,6 +19,8 @@
   .\escrever-livro.ps1 -Inicio 5 -Fim 8       # só do capítulo 05 ao 08
 .EXAMPLE
   .\escrever-livro.ps1 -Reescrever            # reescreve mesmo se o capítulo já existir
+.EXAMPLE
+  .\escrever-livro.ps1 -PorVez 1              # um capítulo por chamada do claude
 .EXAMPLE
   .\escrever-livro.ps1 -Modelo opus -Esforco medium
 .EXAMPLE
@@ -29,6 +33,9 @@ param(
   [switch]$Reescrever = ($env:REESCREVER -eq '1'),
   [string]$Modelo = $(if ($env:MODELO) { $env:MODELO } else { 'opus' }),
   [string]$Esforco = $(if ($env:ESFORCO) { $env:ESFORCO } else { 'medium' }),
+  # Quantos capítulos cada chamada do claude escreve.
+  [ValidateRange(1, 40)]
+  [int]$PorVez = $(if ($env:POR_VEZ) { [int]$env:POR_VEZ } else { 2 }),
   # Caminho do executável do Claude Code, se ele não estiver no PATH.
   [string]$Claude = $(if ($env:CLAUDE_BIN) { $env:CLAUDE_BIN } else { 'claude' })
 )
@@ -136,20 +143,26 @@ function Invoke-Claude([string]$Prompt, [string]$Log, [string[]]$Argumentos) {
 # Prompt da escrita
 # ---------------------------------------------------------------------------
 $PromptEscrita = @'
-Tarefa: escrever o capítulo __NUM__ do livro em `capitulos/__ARQUIVO__.md`. Escreva apenas este capítulo. Além dele, só crie `notas/resumos/__ARQUIVO__.md`.
+Tarefa: escrever __QTD__ do livro, em ordem:
 
-## Etapa 1: contexto
+__LISTA__
+
+Não escreva nenhum outro capítulo. Além dos capítulos, só crie os resumos indicados.
+
+Escreva um capítulo por vez: cumpra as etapas 2 a 4 inteiras para um capítulo (escrita, checagem e resumo) antes de começar o seguinte. O resumo de um capítulo faz parte do contexto do próximo.
+
+## Etapa 1: contexto (uma vez, no início)
 
 Leia:
 - `instrucoes/livro.md`, `instrucoes/estrutura-do-capitulo.md`, `instrucoes/estilo.md`, `instrucoes/rigor-e-formatacao.md` e `instrucoes/resumos.md`.
-- `instrucoes/projeto.md`: o projeto Lastro que conduz o livro. Na tabela do sumário em `instrucoes/livro.md`, a linha do capítulo __NUM__ (coluna "Na Lastro") é o roteiro deste capítulo; a do capítulo seguinte diz para onde apontar no fim.
-- Todos os resumos já existentes em `notas/resumos/`, em ordem. Eles registram o estado da Lastro (componentes, decisões, números), que este capítulo continua e não pode contradizer, além dos casos reais já usados (não repita), da terminologia adotada, de onde cada tema é aprofundado (para remissões) e das piadas recorrentes. Não leia os outros capítulos inteiros. Se precisar conferir um detalhe pontual, use Grep neles.
+- `instrucoes/projeto.md`: o projeto Lastro que conduz o livro. Na tabela do sumário em `instrucoes/livro.md`, a linha de cada capítulo (coluna "Na Lastro") é o roteiro dele; a do capítulo seguinte diz para onde apontar no fim.
+- Todos os resumos já existentes em `notas/resumos/`, em ordem. Eles registram o estado da Lastro (componentes, decisões, números), que cada capítulo continua e não pode contradizer, além dos casos reais já usados (não repita), da terminologia adotada, de onde cada tema é aprofundado (para remissões) e das piadas recorrentes. Não leia os outros capítulos inteiros. Se precisar conferir um detalhe pontual, use Grep neles.
 
 ## Etapa 2: escrita
 
-Escreva o capítulo completo com Write, de uma vez, com 2.000 a 3.000 palavras sem contar blocos de código. O capítulo parte de um problema da Lastro, ensina o mecanismo em termos gerais e aplica-o ao projeto, seguindo `instrucoes/estrutura-do-capitulo.md` (inclusive a seção "A Lastro agora" no fim). O projeto é descrito, nunca implementado: decisões justificadas por requisitos do projeto, fluxos, esquemas conceituais, diagramas em ASCII e tabelas; código só em trechos curtos quando for muito importante para exemplificar um conceito. Só conteúdo técnico e objetivo, sem opinião, e escrito como um show de stand-up: siga a seção "Humor" de `instrucoes/estilo.md` (abertura, bits, tags, callbacks e fechamento; humor escrachado, dentro dos limites), com piada em todas as seções, inclusive no mecanismo. O leitor é inteligente e entende de tecnologia: explique o mecanismo diretamente, sem analogias (ver a seção "Analogias"). O leitor só lê: os exemplos de código mostram a saída, e o texto nunca pede que ele rode, instale ou experimente nada. Escreva com o seu conhecimento. Caso real só com detalhes de que você tenha certeza; na dúvida, use cenário hipotético e diga que é hipotético. Confira a contagem:
+Escreva o capítulo completo com Write, de uma vez, com 2.000 a 3.000 palavras sem contar blocos de código. O capítulo parte de um problema da Lastro, ensina o mecanismo em termos gerais e aplica-o ao projeto, seguindo `instrucoes/estrutura-do-capitulo.md` (inclusive a seção "A Lastro agora" no fim). O projeto é descrito, nunca implementado: decisões justificadas por requisitos do projeto, fluxos, esquemas conceituais, diagramas em ASCII e tabelas; código só em trechos curtos quando for muito importante para exemplificar um conceito. Só conteúdo técnico e objetivo, sem opinião, e escrito como um show de stand-up: siga a seção "Humor" de `instrucoes/estilo.md` (abertura, bits, tags, callbacks e fechamento; humor escrachado, dentro dos limites), com piada em todas as seções, inclusive no mecanismo. O leitor é inteligente e entende de tecnologia: explique o mecanismo diretamente, sem analogias (ver a seção "Analogias"). O leitor só lê: os exemplos de código mostram a saída, e o texto nunca pede que ele rode, instale ou experimente nada. Escreva com o seu conhecimento. Caso real só com detalhes de que você tenha certeza; na dúvida, use cenário hipotético e diga que é hipotético. Confira a contagem (troque pelo arquivo do capítulo):
 
-    sed '/^```/,/^```/d' capitulos/__ARQUIVO__.md | wc -w
+    sed '/^```/,/^```/d' capitulos/NN-nome.md | wc -w
 
 ## Etapa 3: checagem mecânica
 
@@ -162,30 +175,47 @@ Sem reler o capítulo inteiro:
 
 ## Etapa 4: resumo
 
-Salve `notas/resumos/__ARQUIVO__.md` no formato de `instrucoes/resumos.md`, em estilo telegráfico, com no máximo ~250 palavras. A seção "A Lastro ao fim do capítulo" é a mais importante: os próximos capítulos dependem dela.
+Salve o resumo do capítulo no caminho indicado na lista, no formato de `instrucoes/resumos.md`, em estilo telegráfico, com no máximo ~250 palavras. A seção "A Lastro ao fim do capítulo" é a mais importante: os próximos capítulos dependem dela, inclusive o seguinte desta tarefa, que só começa depois que este resumo estiver salvo.
 
 ## Resposta final
 
-No máximo 2 linhas, telegráfico: palavras finais; pendências para o autor (ou "nenhuma").
+Uma linha por capítulo, telegráfico: número; palavras finais; pendências para o autor (ou "nenhuma").
 '@
 
 $total = $Capitulos.Count
 
+# Capítulos a escrever, em ordem.
+$pendentes = [System.Collections.Generic.List[int]]::new()
 for ($i = $Inicio; $i -le $Fim -and $i -le $total; $i++) {
   $num = '{0:D2}' -f $i
-  $arquivo = $Capitulos[$i - 1]
-  $capitulo = "capitulos/$arquivo.md"
-  $resumo = "notas/resumos/$arquivo.md"
-
+  $capitulo = "capitulos/$($Capitulos[$i - 1]).md"
   if ((Test-Path -LiteralPath $capitulo) -and -not $Reescrever) {
     Write-Host ">> [$num/$total] $capitulo já existe, pulando."
     continue
   }
+  $pendentes.Add($i)
+}
+
+# Uma chamada do claude por lote de até $PorVez capítulos.
+for ($p = 0; $p -lt $pendentes.Count; $p += $PorVez) {
+  $lote = @($pendentes.GetRange($p, [Math]::Min($PorVez, $pendentes.Count - $p)))
+  $nums = @($lote | ForEach-Object { '{0:D2}' -f $_ })
+
+  $lista = ($lote | ForEach-Object {
+      $arquivo = $Capitulos[$_ - 1]
+      "- Capítulo $('{0:D2}' -f $_): ``capitulos/$arquivo.md``, resumo em ``notas/resumos/$arquivo.md``."
+    }) -join "`n"
+  if ($lote.Count -eq 1) {
+    $qtd = '1 capítulo'
+    $log = "logs/$($Capitulos[$lote[0] - 1]).escrita.log"
+  } else {
+    $qtd = "$($lote.Count) capítulos"
+    $log = "logs/$($nums[0])-$($nums[-1]).escrita.log"
+  }
 
   # --- Escrita, checagem e resumo -------------------------------------------
-  $prompt = $PromptEscrita.Replace('__NUM__', $num).Replace('__ARQUIVO__', $arquivo)
-  $log = "logs/$arquivo.escrita.log"
-  Write-Host ">> [$num/$total] Escrevendo $capitulo ($(Get-Date -Format 'HH:mm:ss')). Log: $log"
+  $prompt = $PromptEscrita.Replace('__QTD__', $qtd).Replace('__LISTA__', $lista)
+  Write-Host ">> [$($nums -join ' ')/$total] Escrevendo $qtd ($(Get-Date -Format 'HH:mm:ss')). Log: $log"
 
   $ok = Invoke-Claude $prompt $log @(
     '--model', $Modelo
@@ -193,22 +223,30 @@ for ($i = $Inicio; $i -le $Fim -and $i -le $total; $i++) {
     '--allowedTools', $PermissoesEscrita
   )
   if (-not $ok) {
-    Write-Host "!! Falha na escrita do capítulo $num. Parando." -ForegroundColor Red
-    exit 1
-  }
-  if (-not (Test-Path -LiteralPath $capitulo)) {
-    Write-Host "!! O capítulo $num não foi criado ($capitulo). Parando." -ForegroundColor Red
-    exit 1
-  }
-  if (-not (Test-Path -LiteralPath $resumo)) {
-    Write-Host "!! O resumo do capítulo $num não foi criado ($resumo). Os próximos capítulos dependem dele. Parando." -ForegroundColor Red
+    Write-Host "!! Falha na escrita dos capítulos $($nums -join ' '). Parando." -ForegroundColor Red
     exit 1
   }
 
-  $palavras = Get-ContagemPalavras $capitulo
-  Write-Host ">> [$num/$total] Concluído: $palavras palavras sem código."
-  if ($palavras -lt 2000 -or $palavras -gt 3000) {
-    Write-Host "!! Atenção: capítulo $num fora da faixa de 2.000 a 3.000 palavras." -ForegroundColor Yellow
+  foreach ($i in $lote) {
+    $num = '{0:D2}' -f $i
+    $arquivo = $Capitulos[$i - 1]
+    $capitulo = "capitulos/$arquivo.md"
+    $resumo = "notas/resumos/$arquivo.md"
+
+    if (-not (Test-Path -LiteralPath $capitulo)) {
+      Write-Host "!! O capítulo $num não foi criado ($capitulo). Parando." -ForegroundColor Red
+      exit 1
+    }
+    if (-not (Test-Path -LiteralPath $resumo)) {
+      Write-Host "!! O resumo do capítulo $num não foi criado ($resumo). Os próximos capítulos dependem dele. Parando." -ForegroundColor Red
+      exit 1
+    }
+
+    $palavras = Get-ContagemPalavras $capitulo
+    Write-Host ">> [$num/$total] Concluído: $palavras palavras sem código."
+    if ($palavras -lt 2000 -or $palavras -gt 3000) {
+      Write-Host "!! Atenção: capítulo $num fora da faixa de 2.000 a 3.000 palavras." -ForegroundColor Yellow
+    }
   }
   Write-Host ''
 }
