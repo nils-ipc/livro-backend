@@ -75,11 +75,20 @@ O sumário em `instrucoes/livro.md` tem, para cada capítulo, a coluna **Na Last
 
 ## Piadas recorrentes
 
-O projeto contínuo permite *running gags* que atravessam o livro (ver "Humor" em `instrucoes/estilo.md`). Pontos de partida, a usar com moderação e sempre numa situação nova e pior:
+O projeto contínuo permite *running gags* e callbacks que atravessam o livro, como num especial de stand-up em 40 partes (ver "Humor" em `instrucoes/estilo.md`). Pontos de partida, a retomar sempre numa situação nova e pior:
 
 - `temp-01`, o servidor provisório onde o fundador subiu a primeira versão num fim de semana e que ninguém tem coragem de desligar.
 - A planilha de conciliação da equipe financeira, que todo mundo sabe ser a verdadeira fonte da verdade.
 - O job agendado chamado `repasse_final_v2_agora_vai.py`.
-- O Bazar Bem-te-vi, primeiro cliente, que sempre descobre o bug antes do monitoramento.
+- O Bazar Bem-te-vi, primeiro cliente, que sempre descobre o bug antes do monitoramento e abre todo chamado com o assunto "URGENTE!!!!".
 
-Novas piadas recorrentes podem nascer em qualquer capítulo; registrá-las no resumo para que os seguintes possam retomá-las. Nunca rir de pessoas reais, empresas reais ou clientes afetados.
+### Elenco fixo
+
+Personagens fictícios da Lastro, para act-out e roast. Ninguém da equipe é baseado em pessoa real. O roast mira as decisões, os hábitos e os cargos deles (ver "Limites" em `instrucoes/estilo.md`):
+
+- **O fundador**, ex-dev que escreveu a primeira versão num fim de semana, em `temp-01`, e ainda tem acesso de administrador a tudo. Acredita que "no meu tempo era só um servidor e funcionava". Tecnicamente, funcionava.
+- **O Carlos**, o dev mais antigo da equipe, autor de todo comentário `não mexa` do código e réu confesso de metade dos incidentes. Sobreviveu a todos, como uma barata com acesso de escrita em produção.
+- **O financeiro**, dono da planilha de conciliação, que fala de centavos com a serenidade de quem já achou R$ 0,01 de divergência às 23h de um sábado.
+- **O gerente de produto**, que pergunta "mas é só um botão, não?" e pede a estimativa em horas, de preferência ontem.
+
+Novas piadas recorrentes e novos personagens podem nascer em qualquer capítulo; registrá-los no resumo para que os seguintes possam retomá-los. Nunca fazer roast de pessoas reais nem rir de clientes reais afetados.

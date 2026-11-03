@@ -2,80 +2,114 @@
 
 ## A voz
 
-- **Um livro técnico que faz rir.** Este é o traço mais marcante do livro. O leitor precisa se divertir de verdade, rir sozinho no ônibus e mandar trechos para os colegas. O texto deve soar como o colega mais engraçado da empresa explicando, com toda a precisão do mundo, por que o sistema caiu de novo. A seção "Humor" abaixo tem o mesmo peso das regras de rigor técnico.
-- **Linguagem natural, como se fosse falada.** Clara, fluida, próxima e descontraída. Nada formal, acadêmico ou engessado.
-- **Sem gírias**, sem expressões de internet, sem palavrões, sem abreviações de conversa ("pra", "tá", "vc"). Português correto, com a naturalidade da fala. A graça vem das ideias e das situações, nunca do vocabulário.
-- **Frases curtas na maior parte do tempo**, com ritmo variado, como numa conversa real. Parágrafos curtos.
+- **Cada capítulo é um show de stand-up que, por acaso, ensina backend.** O narrador é um comediante no palco que passou quinze anos de plantão e voltou para contar. O leitor é a plateia. O texto precisa fazer rir alto, não sorrir de canto: rir sozinho no ônibus, engasgar com o café, mandar foto da página para o grupo da empresa. A seção "Humor" abaixo tem o mesmo peso das regras de rigor técnico, e "foi engraçadinho" é reprovação.
+- **Linguagem falada, de palco.** O texto soa como alguém falando ao microfone: direto, solto, com ritmo, pausa e virada. Nada formal, acadêmico ou engessado. O registro oral ("pra", "tá", "né") é permitido quando ajuda o ritmo da piada ou a fala de um personagem; no mecanismo, o português continua correto e limpo.
+- **Palavrão liberado, com função.** Um palavrão bem colocado é uma punchline; palavrão em toda frase é só barulho. Use quando ele for a palavra mais engraçada disponível, não como pontuação.
+- **Sem gíria de internet, meme ou referência que envelhece em seis meses.** O livro precisa ser engraçado daqui a cinco anos.
+- **Frases curtas na maior parte do tempo**, com ritmo de palco: preparação, pausa, golpe. Parágrafos curtos. A palavra que faz rir vai no fim da frase.
 - **Direto ao ponto.** Nada de introdução genérica do tipo "No mundo atual da tecnologia...". Cada parágrafo entrega uma informação, uma risada ou, de preferência, as duas.
-- **Preciso e rigoroso.** A piada nunca sacrifica a exatidão técnica.
-- **O leitor é inteligente e entende de tecnologia.** Escrever para um colega sênior, nunca para uma criança ou um leigo. Explicar o mecanismo diretamente, no nível técnico, sem simplificar com historinhas e sem repetir a mesma ideia de três jeitos. Se um conceito é novo para ele, defini-lo com precisão uma vez e seguir em frente.
+- **Preciso e rigoroso.** O comediante pode mentir sobre tudo, menos sobre o mecanismo. A piada nunca sacrifica a exatidão técnica.
+- **O leitor é inteligente e entende de tecnologia.** Escrever para um colega sênior, nunca para uma criança ou um leigo. Explicar o mecanismo diretamente, no nível técnico, sem simplificar com historinhas e sem repetir a mesma ideia de três jeitos. Se um conceito é novo para ele, defini-lo com precisão uma vez e seguir em frente. A plateia é esperta: piada que precisa ser explicada morreu.
 - **O leitor lê, não executa.** O livro é para ser lido do começo ao fim, sem computador por perto. O projeto da Lastro é descrito, nunca implementado, e o código aparece só em trechos curtos que exemplificam um conceito (ver `instrucoes/projeto.md`). O texto nunca pede ao leitor que rode, instale, teste, implemente, abra um terminal ou "experimente na sua máquina".
 
 ## Humor
 
+### O alvo: escracho, não simpatia
+
+O humor anterior deste livro falhou por ser educado demais: muitos momentos de graça, todos fracos, do tipo que se reconhece como piada sem rir dela. Ironia suave, personificação fofa e "o que, como você vai ver, não é verdade" não bastam mais. O alvo agora é o humor escrachado de stand-up:
+
+- **Piada idiota é bem-vinda.** Trocadilho horrível, piada de tiozão, a piada tão ruim que fica boa. O narrador pode assumir o crime ("eu sei, eu sei, essa foi péssima, e vou fazer de novo daqui a duas páginas") ou fingir que foi genial.
+- **Humor negro é bem-vindo.** Backend é um assunto mórbido: o kernel mata processos, os filhos ficam órfãos e são adotados pelo `init`, os zumbis ficam na tabela de processos porque o pai não leu o atestado de óbito, o OOM killer escolhe a vítima por pontuação, o `kill -9` não dá direito a últimas palavras, a carreira do dev termina num `DROP TABLE` em produção, o plantão das 3h da manhã envelhece o engenheiro em dobro.
+- **Humor adulto é bem-vindo.** Duplo sentido e malícia de palco, que a terminologia entrega de bandeja: handshake, inserção, penetração (o *pen test*), conexão persistente, *keep-alive*, rapidinha que dá timeout, cliente que fecha a conexão sem avisar, relação de muitos para muitos, chave estrangeira, *master* e *slave* (e por que o mercado trocou os nomes). Malícia sim, descrição sexual explícita não.
+- **Humor ofensivo é bem-vindo, com mira.** Roast pesado do leitor, do próprio narrador, da profissão, do fundador da Lastro, do gerente que pede estimativa, do arquiteto que desenha caixinhas, do consultor que cobra por hora, do microsserviço que só existe para chamar outro microsserviço, das tecnologias (o YAML, o JavaScript, o Java e seus `AbstractSingletonProxyFactoryBean`, o PHP, o próprio SQL), do mercado e das modas. Ver os limites abaixo.
+- **Exagero sem freio.** Levar uma má decisão até a consequência mais absurda e ainda matematicamente correta, e depois passar dela.
+
 ### Quanto humor
 
-Muito, e mais do que parece razoável para um livro técnico. O humor é contínuo, do título da primeira seção ao resumo (as referências ficam sem piada). Como régua:
+Muito, e com risada de verdade. O humor é contínuo, do título da primeira seção ao resumo (as referências ficam sem piada). Como régua:
 
-- Pelo menos um momento engraçado a cada dois ou três parágrafos, em **todas** as seções, inclusive as mais densas do mecanismo, as tabelas de custos e os exemplos de código. Uma seção `##` sem várias risadas está incompleta.
-- Algo entre 25 e 40 momentos de humor por capítulo, de tamanhos variados: uma palavra bem escolhida, uma frase, um parêntese, um comentário de código, um diálogo de quatro linhas, uma cena inteira.
-- O mecanismo é exatamente onde o humor mais ajuda. Explicar o handshake do TCP, o MVCC ou o Raft com graça é o que diferencia este livro de uma RFC.
-- Se uma releitura do capítulo não arranca nenhum sorriso numa seção, reescrever essa seção.
+- **Densidade:** pelo menos uma piada a cada parágrafo ou dois, em **todas** as seções, inclusive as mais densas do mecanismo, as tabelas de custos e os exemplos de código. Algo entre 40 e 60 piadas por capítulo.
+- **Força:** cada seção `##` precisa de pelo menos um *bit* forte, aquele trecho que o leitor mandaria para alguém. Um capítulo inteiro de piadas médias está reprovado, mesmo que tenha sessenta delas.
+- **Teste da risada:** releia cada piada e pergunte se alguém riria alto disso num bar de comédia. Se a resposta é "dá um sorrisinho", reescreva mais pesada, mais absurda, mais específica ou mais idiota, ou corte. Ironia que só se reconhece como ironia não conta como piada.
+- O mecanismo é exatamente onde o humor mais ajuda. Explicar o handshake do TCP, o MVCC ou o Raft como um número de stand-up é o que diferencia este livro de uma RFC.
 
-### De onde vem a graça
+### O capítulo como um show
 
-As melhores piadas de um livro de backend vêm da vida real de quem constrói e opera sistemas. Exemplos do tipo de material:
+Cada capítulo é um *set* de stand-up, com a estrutura de um:
 
-- O deploy de sexta-feira às 17h50, que "é só uma linha".
-- O índice criado em produção no horário de pico.
-- O cache que "resolveu" o problema escondendo o bug por seis meses.
-- O `TODO: remover antes de subir` que completou cinco anos em produção.
-- O log que diz `Erro: sucesso`.
-- O servidor chamado `temp-01`, o mais antigo e o mais crítico da empresa.
-- O timeout de 30 segundos que ninguém sabe quem configurou, e que ninguém tem coragem de mudar.
-- A planilha que, no fundo, é o banco de dados oficial da empresa.
-- A reunião de postmortem em que todo mundo descobre que o alerta disparou, sim, e foi silenciado em 2019.
+- **Abertura (opener):** a primeira frase já é piada, dentro da cena da Lastro. Nada de aquecimento. O comediante entra no palco falando do desastre.
+- **Bits:** cada seção é um *bit*, um bloco com premissa cômica própria que carrega o conceito técnico. A premissa é uma observação verdadeira e absurda sobre o mecanismo ("o TCP é o único protocolo que pede confirmação de que você recebeu a confirmação"), e as piadas saem dela em sequência.
+- **Tags:** depois de uma piada que funcionou, emendar mais uma ou duas em cima da mesma premissa, cada uma mais pesada. O riso cresce na terceira.
+- **Escalada:** a situação da Lastro piora a cada parágrafo até o ponto mais absurdo, e só então vem a explicação de como evitar.
+- **Callbacks:** retomar uma piada de seções anteriores (ou de capítulos anteriores) no momento mais inesperado. O callback mais forte fica no fim.
+- **Fechamento (closer):** "A Lastro agora" termina com o melhor callback do capítulo ou com uma piada que já prepara o desastre do capítulo seguinte.
 
 ### Técnicas
 
 Usar todas, variando ao longo do capítulo:
 
-- **Ironia e understatement**: descrever um desastre em tom calmo ("o banco continuou funcionando perfeitamente; só não aceitava mais escritas").
-- **Exagero com lógica**: levar uma má decisão até a consequência absurda, mas matematicamente correta ("nesse ritmo, em 2031 o backup vai levar mais tempo do que o intervalo entre backups").
-- **Personificação cômica dos componentes**: o kernel que segue o regulamento à risca, o garbage collector que escolhe o pior momento possível para trabalhar, o TCP que retransmite um SYN para uma máquina desligada com uma paciência de dois minutos, o pacote perdido que ninguém procura. A personalidade é uma camada de graça sobre o comportamento real, descrito com exatidão; ela não substitui a explicação nem serve de analogia.
-- **Diálogos curtos** entre componentes ou pessoas, quando explicarem o protocolo melhor que um parágrafo:
+- **Observacional:** "vocês já repararam que..." aplicado à vida de quem opera sistemas. O que todo dev viu e nunca disse em voz alta.
+- **Act-out (encenação):** o narrador dá voz aos componentes e às pessoas, em diálogo curto. O kernel burocrata, o garbage collector que para o mundo para limpar o quarto, o load balancer que manda tudo para o único servidor doente, o banco de dados passivo-agressivo:
 
   ```text
   Cliente:  Recebeu meu pagamento?
   Servidor: Talvez.
   Cliente:  Vou mandar de novo, por garantia.
   Servidor: (cobra duas vezes)
+  Cliente:  Recebeu?
+  Servidor: Duas vezes. Quer recibo das duas?
+  Bazar:    (abre chamado com o assunto "URGENTE!!!!")
   ```
 
-- **Autoironia da profissão**: o que todo dev já fez e não conta em entrevista (o `UPDATE` sem `WHERE`, o `git push --force` na branch errada, o "funciona na minha máquina").
-- **Piadas recorrentes** (*running gags*): um servidor, um job, um cliente ou um número que volta em seções e capítulos diferentes, cada vez numa situação pior. O projeto contínuo permite que atravessem o livro: `instrucoes/projeto.md` lista as de partida e os resumos registram as que nasceram depois. Retomar uma piada recorrente exige uma situação nova; repetir a mesma piada é tique.
-- **Títulos de seção engraçados**, desde que digam do que a seção trata ("O handshake, ou como dois computadores dizem oi três vezes").
-- **Código e saídas com graça**: nos poucos trechos de código, nomes, comentários e mensagens de log divertidos, com o código tecnicamente correto. Descrições do projeto também: o nome de um job, o estado de uma cobrança, a mensagem de erro que o Bazar recebeu.
-- **Parênteses e apartes** como comentário do narrador ("o que, como você vai ver, não é verdade").
-- **Destaques com humor**: os blocos `> **Armadilha:**` e `> **Na vida real:**` também podem (e devem) ter graça.
+  A personalidade é uma camada de graça sobre o comportamento real, descrito com exatidão; ela não substitui a explicação nem serve de analogia.
+- **Crowd work:** falar com a plateia e acusá-la. "Você aí, que já rodou um `UPDATE` sem `WHERE`: eu sei que foi você. A tabela também sabe." O leitor é cúmplice de todos os pecados da profissão.
+- **Autodepreciação do narrador:** o comediante conta os próprios crimes (o `git push --force` na `main`, o índice criado no pico, o "é só uma linha" de sexta às 17h50) e as sequelas emocionais que deixaram.
+- **Piada infame assumida:** o trocadilho terrível, seguido de comentário do narrador sobre a própria piada ("essa piada tem a mesma qualidade do código legado da Lastro: ninguém sabe quem escreveu e ninguém tem coragem de tirar").
+- **Anti-piada e quebra de expectativa:** montar a preparação para uma punchline óbvia e entregar outra, seca e literal.
+- **Regra de três cômica:** dois itens normais e o terceiro absurdo. Só para piada, e não em toda lista (ver "Grupos de três" nas marcas de IA).
+- **Exagero com lógica:** "nesse ritmo, em 2031 o backup vai levar mais tempo do que o intervalo entre backups, e em 2033 o backup vai ter um backup próprio, que também vai falhar".
+- **Humor negro técnico:** mortes, órfãos, zumbis, execuções sumárias, autópsias (o postmortem), heranças malditas (o código legado), cemitérios (o bucket de logs que ninguém abre).
+- **Piadas recorrentes** (*running gags*) e personagens fixos: `instrucoes/projeto.md` lista os de partida e os resumos registram os que nasceram depois. Retomar uma piada recorrente exige uma situação nova e pior; repetir a mesma piada é tique.
+- **Títulos de seção com punchline**, desde que digam do que a seção trata ("O handshake, ou como dois computadores dizem oi três vezes e mesmo assim um deles não estava ouvindo").
+- **Código e saídas com graça**: nomes, comentários e mensagens de log escrachados, com o código tecnicamente correto (`-- não rode isso. sério. o Carlos rodou.`). Descrições do projeto também: o nome de um job, o estado de uma cobrança, a mensagem de erro que o Bazar recebeu.
+- **Apartes e notas de rodapé faladas:** parênteses em que o narrador interrompe a si mesmo para fazer outra piada.
+- **Destaques com humor**: os blocos `> **Armadilha:**` e `> **Na vida real:**` também levam piada, de preferência a mais cruel da seção.
+
+### De onde vem a graça
+
+As melhores piadas vêm da vida real de quem constrói e opera sistemas, contada sem pudor:
+
+- O deploy de sexta-feira às 17h50, que "é só uma linha", e o fim de semana que ele custou.
+- O índice criado em produção no horário de pico, e o silêncio no canal logo depois.
+- O cache que "resolveu" o problema escondendo o bug por seis meses, como um corpo no porão.
+- O `TODO: remover antes de subir` que completou cinco anos em produção e já pode votar.
+- O log que diz `Erro: sucesso`.
+- O servidor chamado `temp-01`, o mais antigo e o mais crítico da empresa.
+- O timeout de 30 segundos que ninguém sabe quem configurou, e que ninguém tem coragem de mudar, porque o último que tentou foi transferido.
+- A planilha que, no fundo, é o banco de dados oficial da empresa.
+- A reunião de postmortem em que todo mundo descobre que o alerta disparou, sim, e foi silenciado em 2019.
+- A estimativa de "duas semanas" que virou dois trimestres e um divórcio.
 
 ### Limites
 
-O humor tem só estes limites, e eles valem sempre:
+O escracho tem poucos limites, e eles valem sempre:
 
 - **Exatidão primeiro.** A piada nunca altera o fato. Se um exagero puder ser lido como dado real, deixar claro que é exagero. Números apresentados como reais continuam reais e verificáveis.
-- **Sem gírias, palavrões, memes ou referências de época** que envelhecem em seis meses.
-- **Rir de situações, de máquinas e da profissão**, nunca de pessoas, grupos, empresas ou tecnologias específicas. Nos incidentes reais, o humor vai para o mecanismo da falha e para a ironia da situação, nunca para quem foi afetado nem para a equipe que errou.
-- **A piada não pode atrapalhar a explicação.** Se o leitor precisar reler a frase para entender o conceito, a piada foi para o lugar errado.
-- **Variar.** A mesma estrutura de piada repetida vira tique e denuncia texto de IA. Alternar técnicas, tamanhos e posições no parágrafo.
+- **O ofensivo mira escolhas, nunca identidades.** Pode ofender o leitor, o narrador, a profissão, os cargos, as decisões, as tecnologias, as modas e os personagens fictícios da Lastro, à vontade. Não pode ter como alvo raça, etnia, origem regional, religião, gênero, orientação sexual, deficiência, doença, idade ou aparência de ninguém. Piada preconceituosa é a piada mais preguiçosa que existe, e este livro tem padrão.
+- **Pessoas e empresas reais.** Nada de roast de pessoa real identificável. Empresas e tecnologias reais podem levar piada sobre fatos públicos e verificados (um incidente documentado, uma decisão de design conhecida), nunca sobre fatos inventados. Nos incidentes reais, o humor vai para o mecanismo da falha e para a ironia da situação, nunca para quem foi afetado; tragédia real com vítimas (mortes, ferimentos) fica sem piada.
+- **Humor negro fica com as máquinas e com a ficção.** Processos, servidores, carreiras fictícias, o sofrimento do próprio narrador. Não com tragédias reais nem com temas como suicídio, abuso ou violência real.
+- **Humor adulto é malícia, não pornografia.** Duplo sentido sim; descrição sexual explícita não.
+- **O roast de tecnologia é bit, não veredito.** A piada pode zombar do YAML; a comparação técnica, logo em seguida, continua objetiva: o que cada opção garante e quanto custa (ver "Conteúdo objetivo"). A decisão da Lastro nunca é justificada pela piada.
+- **A piada não pode atrapalhar a explicação.** Se o leitor precisar reler a frase para entender o conceito, a piada foi para o lugar errado. Piada no parágrafo do mecanismo vai antes ou depois da frase que define, não dentro dela.
+- **Variar.** A mesma estrutura de piada repetida vira tique e denuncia texto de IA. Alternar técnicas, tamanhos, alvos e posições no parágrafo.
 
 ### Atenção do leitor
 
 O humor já faz boa parte desse trabalho. Além dele:
 
-- A primeira frase do capítulo coloca o leitor dentro de uma cena concreta, de preferência engraçada.
+- A primeira frase do capítulo coloca o leitor dentro de uma cena concreta e já é piada.
 - Uma pergunta deixada no ar no começo e respondida mais adiante dá motivo para continuar lendo. Toda pergunta aberta é respondida no capítulo.
-- Depois de três ou quatro parágrafos de mecanismo, entra um exemplo, uma cena ou uma piada.
+- Depois de três ou quatro parágrafos de mecanismo, entra um act-out, uma cena da Lastro ou um callback.
 
 ## Analogias
 
@@ -112,7 +146,8 @@ O livro ensina conhecimento técnico definido, nunca opinião.
 
 ## Não faça
 
-- Gírias, linguagem coloquial demais ou tom de rede social.
+- Gíria de internet, meme ou tom de rede social (o registro oral de palco é outra coisa e está liberado; ver "A voz").
+- Humor educado: a ironia de canto de boca, o trocadilho tímido, a piada que pede licença. Se é para fazer piada, faça inteira.
 - Parágrafos longos ou blocos de teoria sem exemplo.
 - Jargão sem explicação na primeira aparição.
 - Linguagem de marketing ("serviço altamente escalável e resiliente que..."). Explicar o que faz, sem vender.
@@ -132,8 +167,8 @@ O texto precisa parecer escrito por uma pessoa. Os padrões abaixo denunciam tex
 - **"Não apenas X, mas também Y."**
 - **Pergunta seguida de resposta de efeito**: "O resultado? Caos.", "A solução? Simples.", "O motivo? ...". No máximo uma ocorrência rara por capítulo.
 - **Sequências de frases-fragmento para dar drama**: "Rápido. Barato. Seguro.", "Sem servidor. Sem dor de cabeça."
-- **Grupos de três** recorrentes (três adjetivos, três exemplos, três itens em toda lista). Usar a quantidade que o conteúdo pedir: dois, quatro, um.
-- **Fechar todo parágrafo ou seção com uma frase de efeito** ou moral da história. Uma piada no fim de um parágrafo, de vez em quando, é diferente: o que denuncia IA é a moral solene repetida.
+- **Grupos de três** recorrentes (três adjetivos, três exemplos, três itens em toda lista). Usar a quantidade que o conteúdo pedir: dois, quatro, um. A regra de três cômica (dois itens normais e o terceiro absurdo) é técnica de palco e pode aparecer, sem virar padrão.
+- **Fechar todo parágrafo ou seção com uma frase de efeito** ou moral da história. Terminar o parágrafo numa punchline é técnica de stand-up e é bem-vindo: o que denuncia IA é a moral solene repetida.
 - **Dois-pontos em todo título** ("Índices: o segredo da performance").
 - **Excesso de negrito** no meio do texto. Negrito só para termos sendo definidos ou avisos importantes.
 - **Emojis.** Nenhum.

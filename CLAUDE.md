@@ -33,7 +33,7 @@ Leia apenas os arquivos de que a tarefa precisa.
 
 ## Regras que valem sempre
 
-- O texto do livro (`capitulos/`) segue `instrucoes/estilo.md`: linguagem natural, como se fosse falada, sem gírias e muito engraçado: humor constante em todas as seções, sem nunca sacrificar a exatidão técnica. O leitor é inteligente (sem analogias forçadas) e só lê o livro: nenhum exemplo pede que ele rode código. O estilo telegráfico das `notas/` nunca vai para o livro.
+- O texto do livro (`capitulos/`) segue `instrucoes/estilo.md`: cada capítulo é um show de stand-up que ensina backend: linguagem de palco, humor escrachado em todas as seções (piada idiota, humor negro, adulto e ofensivo, com os limites do arquivo), sem nunca sacrificar a exatidão técnica. O leitor é inteligente (sem analogias forçadas) e só lê o livro: nenhum exemplo pede que ele rode código. O estilo telegráfico das `notas/` nunca vai para o livro.
 - Só conteúdo técnico e objetivo: nada de opinião, liderança de pessoas ou processo de equipe. Decisões da Lastro sempre justificadas por um requisito do projeto e uma propriedade técnica.
 - A Lastro é descrita, nunca implementada: nada de código dos serviços; trechos curtos só para exemplificar um conceito.
 - Cada capítulo parte do estado deixado pelos anteriores (registrado em `notas/resumos/`) e não o contradiz.

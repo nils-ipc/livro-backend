@@ -7,7 +7,7 @@ Os capítulos são escritos em sequência e o projeto da Lastro avança a cada u
 - os termos e definições adotados, para manter a mesma terminologia;
 - onde cada tema foi aprofundado, para remissões corretas ("como no capítulo 3...");
 - os casos reais e exemplos já usados, para não repetir;
-- as piadas recorrentes usadas, para que voltem em situações novas.
+- as piadas recorrentes, os personagens e os bits que mais funcionaram, para que voltem como callback em situações novas.
 
 Estilo telegráfico (caveman): sem artigos, fragmentos, uma informação por linha. Manter exatos nomes, números e termos. Máximo de ~250 palavras. Estas notas nunca vão para o livro, e o livro nunca usa este estilo.
 
@@ -31,5 +31,5 @@ Estilo telegráfico (caveman): sem artigos, fragmentos, uma informação por lin
 - ...
 
 ## Piadas recorrentes
-- piada: situação em que apareceu
+- piada ou personagem: situação em que apareceu; estado atual (o que já aconteceu com ele)
 ```
