@@ -9,7 +9,7 @@
 - **Direto ao ponto.** Nada de introdução genérica do tipo "No mundo atual da tecnologia...". Cada parágrafo entrega uma informação, uma risada ou, de preferência, as duas.
 - **Preciso e rigoroso.** A piada nunca sacrifica a exatidão técnica.
 - **O leitor é inteligente e entende de tecnologia.** Escrever para um colega sênior, nunca para uma criança ou um leigo. Explicar o mecanismo diretamente, no nível técnico, sem simplificar com historinhas e sem repetir a mesma ideia de três jeitos. Se um conceito é novo para ele, defini-lo com precisão uma vez e seguir em frente.
-- **O leitor lê, não executa.** O livro é para ser lido do começo ao fim, sem computador por perto. Código, comandos e saídas aparecem como exemplos para ler. O texto nunca pede ao leitor que rode, instale, teste, abra um terminal ou "experimente na sua máquina" (ver `instrucoes/estrutura-do-capitulo.md`).
+- **O leitor lê, não executa.** O livro é para ser lido do começo ao fim, sem computador por perto. O projeto da Lastro é descrito, nunca implementado, e o código aparece só em trechos curtos que exemplificam um conceito (ver `instrucoes/projeto.md`). O texto nunca pede ao leitor que rode, instale, teste, implemente, abra um terminal ou "experimente na sua máquina".
 
 ## Humor
 
@@ -53,9 +53,9 @@ Usar todas, variando ao longo do capítulo:
   ```
 
 - **Autoironia da profissão**: o que todo dev já fez e não conta em entrevista (o `UPDATE` sem `WHERE`, o `git push --force` na branch errada, o "funciona na minha máquina").
-- **Piadas recorrentes dentro do capítulo** (*running gags*): um personagem, um servidor ou um número que volta em seções diferentes, cada vez numa situação pior. Fica dentro do capítulo, que precisa continuar independente.
+- **Piadas recorrentes** (*running gags*): um servidor, um job, um cliente ou um número que volta em seções e capítulos diferentes, cada vez numa situação pior. O projeto contínuo permite que atravessem o livro: `instrucoes/projeto.md` lista as de partida e os resumos registram as que nasceram depois. Retomar uma piada recorrente exige uma situação nova; repetir a mesma piada é tique.
 - **Títulos de seção engraçados**, desde que digam do que a seção trata ("O handshake, ou como dois computadores dizem oi três vezes").
-- **Código com graça**: nomes de variáveis, comentários e mensagens de log divertidos, com o código tecnicamente correto. Como o leitor só lê o código, o exemplo é um ótimo lugar para piada.
+- **Código e saídas com graça**: nos poucos trechos de código, nomes, comentários e mensagens de log divertidos, com o código tecnicamente correto. Descrições do projeto também: o nome de um job, o estado de uma cobrança, a mensagem de erro que o Bazar recebeu.
 - **Parênteses e apartes** como comentário do narrador ("o que, como você vai ver, não é verdade").
 - **Destaques com humor**: os blocos `> **Armadilha:**` e `> **Na vida real:**` também podem (e devem) ter graça.
 
@@ -103,6 +103,7 @@ O livro ensina conhecimento técnico definido, nunca opinião.
 - Usar perguntas retóricas de vez em quando para conduzir o raciocínio, como em uma conversa (com moderação; ver a seção sobre marcas de texto de IA).
 - Explicar o conceito novo pela relação técnica real com algo que o leitor já domina (Python, React, git, ORM, SQL), sem recorrer a analogias (ver a seção "Analogias").
 - Contar casos reais (incidentes públicos, postmortems conhecidos), sempre verificados.
+- Ancorar o conceito na Lastro: depois do mecanismo geral, mostrar o que ele muda no projeto, com números do projeto.
 - Mostrar o erro antes do acerto quando isso ensinar algo ("veja o que acontece se...").
 - Usar destaques curtos:
   - `> **Armadilha:** ...` para erros comuns e custos escondidos.
@@ -117,6 +118,8 @@ O livro ensina conhecimento técnico definido, nunca opinião.
 - Linguagem de marketing ("serviço altamente escalável e resiliente que..."). Explicar o que faz, sem vender.
 - Listas enormes de recursos. Escolher o que importa para quem precisa decidir e operar.
 - Apresentar uma tecnologia sem os custos e limites dela.
+- Implementar o projeto: nada de código dos serviços da Lastro, nem "passo a passo" de construção. Descrever decisões, fluxos e esquemas.
+- Deixar o projeto engolir o conceito: o mecanismo é ensinado em termos gerais, e não só no recorte que a Lastro usa.
 
 ## Evitar marcas de texto escrito por IA
 
