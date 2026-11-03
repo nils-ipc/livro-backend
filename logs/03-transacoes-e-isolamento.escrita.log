@@ -1,0 +1,2 @@
+Escrevi o capítulo 03 com 2.997 palavras sem contar os blocos de código e salvei o resumo; as quatro checagens mecânicas passaram.
+Pendências: confirmar que o bug do serializable no Jepsen foi corrigido na versão 12.4 e os números da ACIDRain (22 ataques em 12 aplicações); Cahill 2008, ACIDRain e Härder e Reuter 1983 estão nas referências sem link.

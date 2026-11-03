@@ -1,0 +1,6 @@
+Escrevi o capítulo 09 com 2.998 palavras sem os blocos de código. A faixa é de 2.000 a 3.000, então sobra pouco espaço se você acrescentar algo. O resumo está em `notas/resumos/09-http-em-profundidade.md`. As checagens mecânicas passaram.
+
+Pendências para o autor:
+- **Fatos a conferir:** o limite de 7.200 s do `Access-Control-Max-Age` no Chromium; o pico de 398 milhões de requisições/s do Rapid Reset; o caso do Google Web Accelerator em 2005 (a referência é a Wikipedia).
+- **Números inventados para a Lastro:** o adquirente limita cada cliente a 20 conexões; 95% das consultas de polling voltam `304`.
+- **Remissão para frente:** a autorização de cartão síncrona de ~800 ms vem da linha do cap. 13 no sumário. Hoje nenhum resumo registra esse número.

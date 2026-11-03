@@ -1,0 +1,2 @@
+Capítulo 06 escrito em `capitulos/06-planos-de-execucao.md` (2.996 palavras sem código) e resumo salvo em `notas/resumos/06-planos-de-execucao.md`; as checagens mecânicas ficaram limpas.
+Pendências: o índice do ledger do cap. 05 mudou para `(conta_id, criado_em, id)` por causa do cursor, então confira se aceita; e confirme que `BUFFERS` vem ligado por padrão com `ANALYZE` no PostgreSQL 18.
