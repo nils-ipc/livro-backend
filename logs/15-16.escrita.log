@@ -1,0 +1,9 @@
+Os dois capítulos estão escritos, cada um com o resumo salvo. Nos dois a checagem mecânica (expressões proibidas e pedidos de execução) não deixou pendência, e os blocos de código são curtos e conceituais. Ninguém releu os capítulos ainda.
+
+- **15 (Falhas parciais):** 2.998 palavras, colado no teto de 3.000; qualquer acréscimo exige corte. Pendências:
+  - Mudei o fechamento depois que o resumo já estava salvo, para não contradizer o deadline de 8 s. Agora o atraso de 10,4 s do lado do Bazar soma 7,8 s da Lastro e 2,6 s na fila de conexões do próprio Bazar. O resumo foi atualizado junto.
+  - A consulta e o desfazimento por referência no adquirente são um contrato fictício da Lastro, não uma regra real de cartão.
+  - O caso do DynamoDB de 2015 foi conferido no relatório da AWS.
+- **16 (Idempotência e semântica de entrega):** 2.986 palavras. Pendências:
+  - Os códigos `409` (chave em andamento) e `422` (corpo diferente) vêm de um Internet-Draft do IETF que eu não conferi na fonte. Vale confirmar.
+  - A recusa de referência duplicada no adquirente e o ID de repasse aceito pelo banco também são premissas de contrato fictícias.

@@ -1,0 +1,2 @@
+- 17: 2.994 palavras. Pendências: confirmar a referência fraca do `asyncio.create_task` e os padrões do SQS (visibility timeout de 30 s, máximo de 12 h) nas fontes. Mudei os números do Hornero para 2 webhooks/s e 5 conexões por processo, para bater com o volume diário dos resumos.
+- 18: 2.994 palavras. Pendências: conferir os links das referências (DOI de "Sagas", PDF do Helland, página do PostgreSQL 17 sobre failover de slots) e o volume novo de ~25 mil cobranças/dia. O `repasse_final_v2_agora_vai.py` ficou de propósito fora da saga, para o capítulo 20.
