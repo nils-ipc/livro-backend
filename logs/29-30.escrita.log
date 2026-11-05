@@ -1,0 +1,21 @@
+Os dois capítulos estão escritos, cada um com o resumo salvo antes de começar o seguinte.
+
+- **29** (`capitulos/29-escalabilidade-e-capacidade.md`): 2.991 palavras. Pendências: ver abaixo.
+- **30** (`capitulos/30-autenticacao.md`): 2.987 palavras. Pendências: ver abaixo.
+
+**Pendências para o autor:**
+
+1. **Links que não conferi.** Escrevi as referências de memória e não abri nenhuma. Antes de publicar, vale conferir sobretudo:
+   - no 29, o post do Google Cloud sobre o Pokémon GO (2016);
+   - no 30, a página do programa de parceiros de secret scanning do GitHub.
+2. **Números novos da Lastro, todos fictícios** e registrados nos resumos:
+   - 29: o Bazar é metade do pico da Lastro; o primário do ledger aguenta ~7.000 lançamentos/s, e a máquina dobrada ~11.000/s; o autoscaling leva 4 min 20 s para reagir; ficam 24 meses de ledger online.
+   - 30: o limite de R$ 500,00 por dia para chave Pix com menos de 24 h. O capítulo 3 tinha criado esse limite sem dar valor.
+3. **Decisões novas em relação ao que estava registrado:**
+   - o sharding do ledger passa a existir de fato (o Tuiuiú ganha shard próprio);
+   - nasce o serviço `conector-adquirente`;
+   - nasce um registro de serviços para as réplicas criadas pelo autoscaling, no lugar da lista estática do capítulo 27.
+
+    Nenhuma contradiz os resumos anteriores, mas vale o autor validar.
+
+Na checagem mecânica, as poucas ocorrências que sobraram nos greps eram falsos positivos ("navegador", "de fator"). A contagem do 29 saiu bem acima do limite na primeira versão (4.507), e cortei com Edits até 2.991, sem reescrever o arquivo inteiro.

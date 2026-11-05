@@ -1,0 +1,4 @@
+- **23**: 2.998 palavras. Pendências: confirmar os links de referência do GitHub (2018), do GitLab (2017) e da página do MySQL sobre comandos inseguros. Também revisar o salto de volume: o cap. 21 tinha ~60 mi de lançamentos e este passa para 420 mi, com 41 marketplaces e 1,5 mi de lançamentos/dia.
+- **24**: 2.958 palavras. Pendências: confirmar os links da Notion (`notion.so`), da especificação do Redis Cluster e do DOI de Karger 1997. Revisar também o detalhe da Notion de que o número 480 foi escolhido pelos divisores, que escrevi de memória.
+
+Os dois resumos estão em `notas/resumos/`. Não fiz commit, e os dois capítulos precisam de revisão humana.
