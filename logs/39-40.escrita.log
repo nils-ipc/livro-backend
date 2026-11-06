@@ -1,0 +1,12 @@
+- **39**: 2.998 palavras; nenhuma pendência.
+- **40**: 2.988 palavras; quatro pendências para conferir:
+  - O Patroni gerencia sozinho o `synchronous_standby_names`. Precisa ver se ele aceita a regra `FIRST 2 (pg-dr, …)` com o membro `nofailover` da região secundária como réplica síncrona.
+  - O caso do *Toy Story 2* está no texto sem link nas referências.
+  - Falta checar a fonte de que a regra 3-2-1 é de Peter Krogh.
+  - A região secundária a ~400 km com RTT de ~8 ms é uma hipótese do projeto.
+
+Fontes usadas para conferir os dados do incêndio da OVHcloud e o link do documento de recuperação de desastres da AWS:
+- [Data Center Knowledge: Fire Has Destroyed OVH's Strasbourg Data Center (SBG2)](https://datacenterknowledge.com/uptime/fire-has-destroyed-ovh-s-strasbourg-data-center-sbg2)
+- [Computer Weekly: OVHcloud datacentre fire](https://www.computerweekly.com/news/252497667/OVHcloud-datacentre-fire-Efforts-underway-to-bring-affected-cloud-customers-back-online)
+- [The Register: relatório de 2022 sobre o incêndio](https://www.theregister.com/2022/03/22/ovhcloud_fire_datacenter_report/)
+- [AWS: Disaster recovery options in the cloud](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html)

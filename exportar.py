@@ -28,10 +28,11 @@ from pygments.formatters import HtmlFormatter
 
 RAIZ = Path(__file__).resolve().parent
 CAPITULOS = RAIZ / "capitulos"
+INTRODUCAO = CAPITULOS / "00-introducao.md"  # texto de abertura, antes da Parte I
 SAIDA = RAIZ / "exportacao"
 
 TITULO = "Além do código"
-SUBTITULO = "Fundamentos técnicos para liderar o backend"
+SUBTITULO = "Backend de verdade para quem vai assumir a liderança técnica"
 AUTOR = "Claude"
 IDIOMA = "pt-BR"
 DESCRICAO = (
@@ -41,10 +42,10 @@ DESCRICAO = (
 )
 
 PARTES = [
-    (1, 6, "Parte I", "Fundamentos de sistemas"),
-    (7, 16, "Parte II", "Dados"),
-    (17, 23, "Parte III", "Sistemas distribuídos"),
-    (24, 29, "Parte IV", "Arquitetura e APIs"),
+    (1, 7, "Parte I", "O núcleo: dinheiro no banco de dados"),
+    (8, 14, "Parte II", "A API no mundo"),
+    (15, 21, "Parte III", "Dinheiro entre sistemas"),
+    (22, 29, "Parte IV", "Escala"),
     (30, 33, "Parte V", "Segurança"),
     (34, 40, "Parte VI", "Infraestrutura e operação"),
 ]
@@ -127,6 +128,14 @@ def abrir_capitulo(cap: Capitulo) -> str:
     )
 
 
+def abrir_introducao(intro: Capitulo) -> str:
+    return (
+        f'<section class="capitulo introducao" id="{intro.id}">\n'
+        f'<h1 class="titulo-capitulo">{esc(intro.titulo)}</h1>\n'
+        f"{intro.corpo}\n</section>\n"
+    )
+
+
 def pagina_parte(rotulo: str, nome: str, id_: str) -> str:
     return (
         f'<section class="parte" id="{id_}">\n'
@@ -163,8 +172,9 @@ def css_base() -> str:
 # --------------------------------------------------------------------- PDF
 
 
-def sumario_html(caps: list[Capitulo]) -> str:
+def sumario_html(caps: list[Capitulo], intro: Capitulo) -> str:
     linhas = ['<nav class="sumario" id="sumario">', "<h1>Sumário</h1>", "<ol class=\"partes\">"]
+    linhas.append(f'<li class="parte-item"><a href="#{intro.id}">{esc(intro.titulo)}</a></li>')
     for inicio, fim, rotulo, nome in PARTES:
         linhas.append(f'<li class="parte-item"><a href="#parte{inicio}">{esc(rotulo)}: {esc(nome)}</a><ol>')
         for cap in (c for c in caps if inicio <= c.numero <= fim):
@@ -179,9 +189,9 @@ def sumario_html(caps: list[Capitulo]) -> str:
     return "\n".join(linhas)
 
 
-def montar_html(caps: list[Capitulo]) -> str:
+def montar_html(caps: list[Capitulo], intro: Capitulo) -> str:
     partes_vistas: set[int] = set()
-    corpo = [folha_de_rosto(), pagina_creditos(), sumario_html(caps)]
+    corpo = [folha_de_rosto(), pagina_creditos(), sumario_html(caps, intro), abrir_introducao(intro)]
     for cap in caps:
         inicio, rotulo, nome = parte_de(cap.numero)
         if inicio not in partes_vistas:
@@ -204,9 +214,9 @@ def navegador() -> Path:
     raise SystemExit("Edge ou Chrome não encontrado; necessário para gerar o PDF.")
 
 
-def imprimir_pdf(caps: list[Capitulo], tmp: Path) -> None:
+def imprimir_pdf(caps: list[Capitulo], intro: Capitulo, tmp: Path) -> None:
     origem = tmp / "livro.html"
-    origem.write_text(montar_html(caps), encoding="utf-8")
+    origem.write_text(montar_html(caps, intro), encoding="utf-8")
     destino = SAIDA / "livro.pdf"
     destino.unlink(missing_ok=True)
     subprocess.run(
@@ -243,13 +253,15 @@ def xhtml(titulo: str, corpo: str, extra_ns: str = "") -> str:
     )
 
 
-def gerar_epub(caps: list[Capitulo]) -> None:
+def gerar_epub(caps: list[Capitulo], intro: Capitulo) -> None:
     ident = f"urn:uuid:{uuid.uuid5(uuid.NAMESPACE_URL, 'livro-backend/' + TITULO)}"
     agora = date.today().isoformat() + "T00:00:00Z"
     arquivos: list[tuple[str, str, str]] = []  # (id, href, conteúdo)
 
     arquivos.append(("rosto", "rosto.xhtml", xhtml(TITULO, folha_de_rosto())))
     arquivos.append(("creditos", "creditos.xhtml", xhtml("Créditos", pagina_creditos())))
+    href_intro = f"{intro.id}.xhtml"
+    arquivos.append((intro.id, href_intro, xhtml(intro.titulo, abrir_introducao(intro))))
 
     nav_itens: list[str] = []
     ncx_pontos: list[str] = []
@@ -262,6 +274,9 @@ def gerar_epub(caps: list[Capitulo]) -> None:
             f'<navPoint id="np{ordem}" playOrder="{ordem}"><navLabel><text>{esc(texto)}</text></navLabel>'
             f'<content src="{href}"/>{filhos}</navPoint>'
         )
+
+    nav_itens.append(f'<li><a href="{href_intro}">{esc(intro.titulo)}</a></li>')
+    ncx_pontos.append(ponto_ncx(intro.titulo, href_intro))
 
     for inicio, fim, rotulo, nome in PARTES:
         href_parte = f"parte{inicio}.xhtml"
@@ -287,7 +302,7 @@ def gerar_epub(caps: list[Capitulo]) -> None:
         f'<nav epub:type="toc" id="toc"><h1>Sumário</h1><ol>{"".join(nav_itens)}</ol></nav>\n'
         '<nav epub:type="landmarks" hidden="hidden"><ol>'
         '<li><a epub:type="toc" href="nav.xhtml">Sumário</a></li>'
-        f'<li><a epub:type="bodymatter" href="{caps[0].id}.xhtml">Início</a></li></ol></nav>',
+        f'<li><a epub:type="bodymatter" href="{href_intro}">Início</a></li></ol></nav>',
     )
     ncx = (
         '<?xml version="1.0" encoding="utf-8"?>\n'
@@ -347,16 +362,19 @@ def gerar_epub(caps: list[Capitulo]) -> None:
 
 def main() -> None:
     args = set(sys.argv[1:])
-    caps = [converter(p) for p in sorted(CAPITULOS.glob("[0-9][0-9]-*.md"))]
+    caps = [converter(p) for p in sorted(CAPITULOS.glob("[0-9][0-9]-*.md")) if p != INTRODUCAO]
     if not caps:
         raise SystemExit("Nenhum capítulo encontrado em capitulos/.")
+    if not INTRODUCAO.exists():
+        raise SystemExit(f"Introdução não encontrada: {INTRODUCAO.relative_to(RAIZ)}")
+    intro = converter(INTRODUCAO)
     SAIDA.mkdir(exist_ok=True)
     if "--so-pdf" not in args:
-        gerar_epub(caps)
+        gerar_epub(caps, intro)
     if "--so-epub" not in args:
         tmp = Path(tempfile.mkdtemp(prefix="livro-backend-"))
         try:
-            imprimir_pdf(caps, tmp)
+            imprimir_pdf(caps, intro, tmp)
         finally:
             shutil.rmtree(tmp, ignore_errors=True)
 

@@ -1,0 +1,12 @@
+Os dois capítulos e os dois resumos estão escritos. Contei as palavras e rodei as buscas por padrões proibidos. Não reli os capítulos inteiros e não fiz commit.
+
+- **31**: 2.996 palavras. Pendências: nenhuma.
+- **32**: 2.992 palavras. Pendências: confirmar se o resumo pode passar das ~250 palavras pedidas, como os anteriores também passam.
+
+Os dois capítulos ficaram colados no teto de 3.000 palavras. As duas primeiras versões passaram do limite (o 31 tinha 4.044), e cortei com Edit. Qualquer acréscimo na revisão vai precisar de um corte em outro lugar.
+
+Para o 32, confirmei no site da OWASP a lista do Top 10:2025, em que o SSRF entrou na categoria A01. Escrevi de memória os casos reais e os links das referências e não abri esses links: Capital One 2019, Equifax 2017, Birsan 2021, xz-utils 2024, First American 2019 e os números do problema dos tanques alemães. Vale conferir antes de exportar.
+
+Fontes:
+- [OWASP Top 10:2025, introdução](https://top10.owasp.org/2025/0x00_2025-Introduction)
+- [Qualys, What Changed in OWASP Top 10 2025](https://blog.qualys.com/qualys-insights/2026/06/15/what-changed-in-owasp-top-10-2025-and-recommendations-for-each-category)

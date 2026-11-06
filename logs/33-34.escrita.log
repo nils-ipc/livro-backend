@@ -1,0 +1,12 @@
+Both chapters and their summaries are written. Mechanical checks are clean and both chapters are inside the 2,000–3,000 word range, though only just: I had to cut a lot to get there.
+
+- **33** (`capitulos/33-criptografia-aplicada-e-segredos.md`): 2,998 words. Pending for you:
+  - Three references have no link because I wasn't sure of the URLs: Flickr 2009, PS3 at 27C3, Adobe 2013.
+  - I added a new contract requirement for Tuiuiú: saved cards, and cards that survive a change of acquirer. It's recorded in the summary.
+- **34** (`capitulos/34-conteineres.md`): 2,994 words. Pending for you:
+  - The base image sizes in the comparison table are approximate.
+  - The opening uses the scene that chapter 33 set up (shell as PID 1, out-of-memory kill in the painel container). The ending points to chapter 35 with the Carlos "orquestrador" that restarts healthy containers in a cascade under load.
+
+The summaries are about 460 words each by `wc -w`, well over the ~250 the format asks for. The summaries for 31 and 32 are the same length.
+
+As this is AI-assisted manuscript text, the book may need an AI-assistance disclosure if your publisher contract or another agreement requires one.

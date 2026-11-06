@@ -1,0 +1,7 @@
+Os capítulos 37 e 38 estão escritos, cada um com o seu resumo, nada mais foi criado e nada foi commitado. Os dois passaram pela checagem mecânica: os padrões proibidos, os pedidos para o leitor executar algo e os blocos de código estão limpos, e a contagem ficou dentro da faixa.
+
+- **37**: 2.991 palavras. Pendência: as URLs das referências (GitHub OIDC, CircleCI, SEC/Knight, Argo Rollouts) não foram abertas para conferir se ainda funcionam. O texto está perto do teto de 3.000, então qualquer acréscimo exige corte em outro lugar.
+- **38**: 2.983 palavras. Pendências:
+  - As URLs das referências também não foram conferidas, principalmente a do RED na Grafana e a de eviction no Redis.
+  - O exemplo de log tem a data fictícia 2027-03-12, uma sexta-feira, coerente com o incidente às 18h52 no horário de Brasília. Vale ver se essa data combina com a linha do tempo do livro.
+  - O texto também está perto do teto.

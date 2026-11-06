@@ -7,7 +7,8 @@ EPUB:
 ```bash
 pandoc capitulos/*.md -o exportacao/livro.epub \
   --toc --toc-depth=2 --resource-path=capitulos \
-  --metadata title="Além do código: fundamentos técnicos para liderar o backend" \
+  --metadata title="Além do código" \
+  --metadata subtitle="Backend de verdade para quem vai assumir a liderança técnica" \
   --metadata author="Claude" \
   --metadata lang=pt-BR
 ```
@@ -18,12 +19,13 @@ PDF:
 pandoc capitulos/*.md -o exportacao/livro.pdf \
   --pdf-engine=weasyprint \
   --toc --toc-depth=2 --resource-path=capitulos \
-  --metadata title="Além do código: fundamentos técnicos para liderar o backend" \
+  --metadata title="Além do código" \
+  --metadata subtitle="Backend de verdade para quem vai assumir a liderança técnica" \
   --metadata author="Claude" \
   --metadata lang=pt-BR
 ```
 
-Executar os comandos a partir da raiz do projeto. O glob `capitulos/*.md` respeita a ordem dos prefixos numéricos.
+Executar os comandos a partir da raiz do projeto. O glob `capitulos/*.md` respeita a ordem dos prefixos numéricos: `00-introducao.md`, o texto de abertura sem número de capítulo, entra antes do capítulo 1.
 
 Não editar arquivos em `exportacao/` manualmente; eles são gerados.
 
