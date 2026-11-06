@@ -15,6 +15,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 import unicodedata
 import uuid
 import zipfile
@@ -214,6 +215,20 @@ def navegador() -> Path:
     raise SystemExit("Edge ou Chrome não encontrado; necessário para gerar o PDF.")
 
 
+def esperar_arquivo(caminho: Path, limite_s: float, estavel_s: float = 2.0) -> bool:
+    """True quando o arquivo existe e o tamanho fica igual por `estavel_s` segundos."""
+    fim = time.monotonic() + limite_s
+    tamanho, desde = -1, time.monotonic()
+    while time.monotonic() < fim:
+        atual = caminho.stat().st_size if caminho.exists() else -1
+        if atual != tamanho:
+            tamanho, desde = atual, time.monotonic()
+        elif atual > 0 and time.monotonic() - desde >= estavel_s:
+            return True
+        time.sleep(0.25)
+    return False
+
+
 def imprimir_pdf(caps: list[Capitulo], intro: Capitulo, tmp: Path) -> None:
     origem = tmp / "livro.html"
     origem.write_text(montar_html(caps, intro), encoding="utf-8")
@@ -235,7 +250,9 @@ def imprimir_pdf(caps: list[Capitulo], intro: Capitulo, tmp: Path) -> None:
         timeout=600,
         capture_output=True,
     )
-    if not destino.exists():
+    # No Windows, o msedge.exe pode repassar o trabalho a outro processo e sair na hora;
+    # o PDF só aparece depois. Espera o arquivo existir e o tamanho parar de mudar.
+    if not esperar_arquivo(destino, limite_s=600):
         raise SystemExit("O navegador não gerou o PDF.")
     print(f"PDF:  {destino} ({destino.stat().st_size / 1e6:.1f} MB)")
 
